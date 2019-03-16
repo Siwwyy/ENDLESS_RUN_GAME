@@ -1,28 +1,40 @@
 ﻿  IndexBuffer.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
+  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
   main.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
+  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
+  Mesh.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Path.cpp
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\path.cpp(10): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\path.cpp(23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Renderer.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
   Texture.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\texture.cpp(13): error C3861: 'stbi_set_flip_vertically_on_load': identifier not found
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\texture.cpp(14): error C3861: 'stbi_load': identifier not found
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\texture.cpp(28): error C3861: 'stbi_image_free': identifier not found
+  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\texture.cpp(13): error C3861: 'stbi_set_flip_vertically_on_load': identifier not found
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\texture.cpp(14): error C3861: 'stbi_load': identifier not found
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\texture.cpp(28): error C3861: 'stbi_image_free': identifier not found
   VertexArray.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(16): error C2511: 'void VertexArray::AddBuffer(const VertexBuffer &,const VertexBufferLayout &)': overloaded member function not found in 'VertexArray'
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(11): note: see declaration of 'VertexArray'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(17): error C2352: 'VertexArray::Bind': illegal call of non-static member function
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(22): note: see declaration of 'VertexArray::Bind'
+  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(16): error C2511: 'void VertexArray::AddBuffer(const VertexBuffer &,const VertexBufferLayout &)': overloaded member function not found in 'VertexArray'
+  d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(11): note: see declaration of 'VertexArray'
+d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(17): error C2352: 'VertexArray::Bind': illegal call of non-static member function
+  d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(22): note: see declaration of 'VertexArray::Bind'
+  VertexBuffer.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
   Generating Code...
