@@ -39,7 +39,8 @@ int main()
 	{
 		return EXIT_FAILURE;
 	}
-
+	//hello
+	int a = 0;
 	//CREATE WINDOW
 	const int WINDOW_WIDTH = 860;
 	const int WINDOW_HEIGHT = 640;
