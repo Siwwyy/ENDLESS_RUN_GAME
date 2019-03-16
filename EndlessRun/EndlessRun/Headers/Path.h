@@ -31,7 +31,8 @@
 
 #include <vector>
 
-struct pathSegment {
+struct pathSegment 
+{
 	unsigned int type; // 0 = regular, 1 = turn, ...
 	unsigned int textureId; // 1 = kot.png, 2 = kot2.png, 3 = rogacz.png
 	unsigned int id;

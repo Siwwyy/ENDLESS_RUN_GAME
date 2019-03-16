@@ -2,15 +2,15 @@
 #define _RENDERER_H_
 #pragma once
 
-void GLClearError();
-
-bool GLLogCall(const char* function, const char* file, int line);
+#include "../Headers/IndexBuffer.h"
+#include "../Headers/VertexArray.h"
+#include "../Headers/Shader.h"
 
 class Renderer
 {
 public:
 	void Clear() const;
-	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;
+	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader);
 };
 
 #endif /* _RENDERER_H_ */

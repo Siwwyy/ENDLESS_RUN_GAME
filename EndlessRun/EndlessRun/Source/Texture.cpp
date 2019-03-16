@@ -1,8 +1,8 @@
-#include "../Headers/Includes.h"
-#include "../Headers/libs.h"
+#include "../Headers/Texture.h"
+//#include "../Headers/libs.h"
 #include "../Headers/Assert.h"
 
-#include "vendor/stb_image/stb_image.h"
+//#include "vendor/stb_image/stb_image.h"
 
 
 Texture::Texture(const std::string& path)

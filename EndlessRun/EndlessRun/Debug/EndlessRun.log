@@ -1,50 +1,28 @@
 ﻿  IndexBuffer.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(10): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(10): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(11): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(11): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(12): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(12): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(17): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(17): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(22): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(22): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(27): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\indexbuffer.cpp(27): error C3861: 'GLLogCall': identifier not found
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
   main.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
-  Mesh.cpp
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
+  Texture.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\mesh.h(37): fatal error C1083: Cannot open include file: 'Vertex.h': No such file or directory
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\texture.cpp(13): error C3861: 'stbi_set_flip_vertically_on_load': identifier not found
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\texture.cpp(14): error C3861: 'stbi_load': identifier not found
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\texture.cpp(28): error C3861: 'stbi_image_free': identifier not found
   VertexArray.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\studia\grafika\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(7): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(7): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(12): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(12): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(16): error C2511: 'void VertexArray::AddBuffer(const VertexBuffer &,const VertexBufferLayout &)': overloaded member function not found in 'VertexArray'
-  d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(11): note: see declaration of 'VertexArray'
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(17): error C2352: 'VertexArray::Bind': illegal call of non-static member function
-  d:\studia\grafika\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(22): note: see declaration of 'VertexArray::Bind'
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(24): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(24): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(25): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(25): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(32): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(32): error C3861: 'GLLogCall': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(37): error C3861: 'GLClearError': identifier not found
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(37): error C3861: 'GLLogCall': identifier not found
-  VertexBuffer.cpp
-d:\studia\grafika\endless_run_game\endlessrun\endlessrun\source\vertexbuffer.cpp(1): fatal error C1083: Cannot open include file: 'VertexBuffer.h': No such file or directory
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(20): error C2143: syntax error: missing ',' before '&'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(16): error C2511: 'void VertexArray::AddBuffer(const VertexBuffer &,const VertexBufferLayout &)': overloaded member function not found in 'VertexArray'
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(11): note: see declaration of 'VertexArray'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(17): error C2352: 'VertexArray::Bind': illegal call of non-static member function
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\vertexarray.h(22): note: see declaration of 'VertexArray::Bind'
   Generating Code...
