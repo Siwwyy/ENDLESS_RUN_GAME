@@ -23,7 +23,7 @@
 #include<SOIL2.h>
 
 // imgui
-#include <imgui.h>
-#include <imgui_impl_glfw_gl3.h>
+//#include <imgui\imgui.h> // todo
+//#include <imgui\imgui_impl_glfw_gl3.h>
 
 #endif /* _LIBS_H_ */
