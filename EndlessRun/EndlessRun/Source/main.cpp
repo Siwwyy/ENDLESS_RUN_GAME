@@ -304,7 +304,7 @@ int main()
 		//r += increment;
 
 
-
+		//commentary
 
 		Core_Shader.set1i(textureCat.GetTextureUnit(), "texture0");
 		//material0.sendToShader(Core_Shader);
