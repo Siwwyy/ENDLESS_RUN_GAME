@@ -17,6 +17,15 @@ Material::Material(glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, GLi
 
 }
 
+Material::Material(glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular, GLint diffuseTex) :
+	ambient(ambient),
+	diffuse(diffuse),
+	specular(specular),
+	diffuseTex(diffuseTex)
+{
+
+}
+
 void Material::sendToShader(Shader & program)
 {
 	program.setVec3f(this->ambient, "material.ambient");

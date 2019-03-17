@@ -5,11 +5,14 @@
 #include "Keyboard.h"
 #include "Shader.h"
 #include "Path.h"
+#include "Renderer.h"
+#include "Material.h"
 #include "VertexArray.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "VertexBufferLayout.h"
 #include "Texture.h"
-
+#include "Mesh.h"
+#include "Texture.h"
 
 #endif /* _INCLUDES_H_ */

@@ -123,6 +123,8 @@ vec3 calculateSpecular(Material material, vec3 vs_position, vec3 vs_normal, vec3
 	return specularFinal;
 }
 
+uniform sampler2D texture0;
+
 void main()
 {
 	//fs_color = vec4(vs_color, 1.f);
@@ -157,7 +159,8 @@ void main()
 	//float diffuse = clamp(dot(posToLightDirVec, vs_normal),0,1);
 	vec3 diffuseFinal = calculateDiffuse(material,vs_position,vs_normal,lightPos0);
 
-	//fs_color = texture(material.diffuseTex, vs_texcoord) * vec4(vs_color, 1.f) * (vec4(ambientLight, 1.f) + vec4(diffuseFinal, 1.f) + vec4(specularFinal, 1.f)); //ranbowish color
-	fs_color = texture(material.diffuseTex, vs_texcoord) * vec4(vs_color, 1.f) * (vec4(ambientFinal, 1.f) + vec4(diffuseFinal, 1.f) + vec4(specularFinal, 1.f));	//specular light
+	fs_color = texture(texture0, vs_texcoord) * vec4(vs_color, 0.f); //ranbowish color
+	//fs_color = texture(material.diffuseTex, vs_texcoord) * vec4(vs_color, 1.f) * (vec4(ambientFinal, 1.f) + vec4(diffuseFinal, 1.f) + vec4(specularFinal, 1.f));	//specular light
+	//fs_color = texture(material.diffuseTex, vs_texcoord) * vec4(vs_color, 1.f) * (vec4(ambientFinal, 1.f) + vec4(diffuseFinal, 1.f) + vec4(specularFinal, 1.f));	//specular light
 	//fs_color = texture(material.diffuseTex, vs_texcoord) * vec4(vs_color, 1.f) * (vec4(ambientFinal, 1.f) + vec4(diffuseFinal, 1.f));	//without specular
 }

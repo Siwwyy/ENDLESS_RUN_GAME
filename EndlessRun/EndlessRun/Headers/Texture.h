@@ -35,19 +35,29 @@ OPENGL AND CONNECTED LIBRARIES
 class Texture
 {
 private:
-	unsigned int m_RendererID;
+	/*unsigned int m_RendererID;
 	std::string m_FilePath;
-	unsigned char* m_LocalBuffer;
-	int m_Width, m_Height, m_BPP;
+	unsigned char* m_LocalBuffer;*/
+	int m_BPP;
+
+	GLuint id;
+	int width;
+	int height;
+	unsigned int type;
+	GLint texture_unit;
 public:
 	Texture(const std::string& path);
+	Texture( const char*path , GLenum type, GLint texture_unit);
 	~Texture();
 
-	void Bind(unsigned int slot = 0) const;
+	void Bind();
+	void loadfromfile(const std::string& path);
 	void Unbind();
 
-	inline int GetWidth() const { return m_Width; }
-	inline int GetHeight() const { return m_Height; }
+	inline int GetWidth() const { return width; }
+	inline int GetHeight() const { return height; }
+	inline GLuint GetTextureID() const { return id; }
+	inline GLint GetTextureUnit() const { return texture_unit; }
 };
 
 #endif /* _TEXTURE_H_ */

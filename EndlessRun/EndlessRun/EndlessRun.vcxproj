@@ -140,6 +140,7 @@
     <ClCompile Include="Source\VertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\Assert.h" />
     <ClInclude Include="Headers\Includes.h" />
     <ClInclude Include="Headers\IndexBuffer.h" />
     <ClInclude Include="Headers\Keyboard.h" />

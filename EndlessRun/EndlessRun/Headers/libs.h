@@ -26,7 +26,6 @@
 #include<stb_image.h>
 
 
-
 // imgui
 //#include <imgui.h> // todo
 //#include <imgui_impl_glfw_gl3.h>
