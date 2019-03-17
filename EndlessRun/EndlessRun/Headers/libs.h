@@ -28,7 +28,7 @@
 
 
 // imgui
-#include <imgui.h> // todo
-//#include <imgui\imgui_impl_glfw_gl3.h>
+//#include <imgui.h> // todo
+//#include <imgui_impl_glfw_gl3.h>
 
 #endif /* _LIBS_H_ */
