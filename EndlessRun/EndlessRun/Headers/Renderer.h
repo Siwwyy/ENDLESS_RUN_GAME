@@ -2,15 +2,22 @@
 #define _RENDERER_H_
 #pragma once
 
-#include "../Headers/IndexBuffer.h"
-#include "../Headers/VertexArray.h"
-#include "../Headers/Shader.h"
+#include "VertexArray.h"
+#include "IndexBuffer.h"
+#include "Shader.h"
+
+#define ASSERT(x) if (!(x)) __debugbreak();
+#define GLCall(x) GLClearError(); x; ASSERT(GLLogCall(#x, __FILE__, __LINE__))
+
+void GLClearError();
+
+bool GLLogCall(const char* function, const char* file, int line);
 
 class Renderer
 {
 public:
 	void Clear() const;
-	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader);
+	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;
 };
 
 #endif /* _RENDERER_H_ */

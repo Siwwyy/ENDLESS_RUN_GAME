@@ -2,9 +2,7 @@
 #define _VERTEX_ARRAY_H_
 #pragma once
 
-//#include "Includes.h"
-//#include "libs.h"
-#include "VertexBufferLayout.h"
+#include "VertexBuffer.h"
 
 class VertexBufferLayout;
 
