@@ -36,14 +36,11 @@ void framebuffer_resize_callback(GLFWwindow * window, int fbW, int fbH)
 int main()
 {
 
-	int a = 10;
-
 	if (glfwInit() == false)
 	{
 		return EXIT_FAILURE;
 	}
-	//hello
-	int a = 0;
+
 	//CREATE WINDOW
 	const int WINDOW_WIDTH = 860;
 	const int WINDOW_HEIGHT = 640;

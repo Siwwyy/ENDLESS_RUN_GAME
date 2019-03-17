@@ -62,9 +62,6 @@
     <ClInclude Include="Headers\libs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Assert.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Headers\Path.h">
       <Filter>Header Files</Filter>
     </ClInclude>

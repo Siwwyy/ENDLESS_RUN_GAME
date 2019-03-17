@@ -1,5 +1,5 @@
 #include "../Headers/Includes.h"
-#include "../Headers/Assert.h"
+#include "../Headers/Renderer.h"
 
 
 VertexArray::VertexArray()

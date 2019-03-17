@@ -22,8 +22,13 @@
 //SOIL2
 #include<SOIL2.h>
 
+// STB_IMAGE
+#include<stb_image.h>
+
+
+
 // imgui
-//#include <imgui\imgui.h> // todo
+#include <imgui.h> // todo
 //#include <imgui\imgui_impl_glfw_gl3.h>
 
 #endif /* _LIBS_H_ */
