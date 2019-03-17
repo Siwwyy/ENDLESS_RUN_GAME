@@ -37,6 +37,7 @@
 *.out
 *.app
 *.log
+*.tlog
 /TEMPLE_RUN_GAME/.vs/TEMPLE_RUN_GAME/v15/Browse.VC.db
 /TEMPLE_RUN_GAME/.vs/TEMPLE_RUN_GAME/v15/Browse.VC.opendb
 */.vs
