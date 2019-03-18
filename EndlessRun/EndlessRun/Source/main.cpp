@@ -137,8 +137,7 @@ int main()
 	layout.Push<float>(2);
 	va.AddBuffer(vb, layout);
 	IndexBuffer ib(indices, 6);
-
-
+	int b = 32;
 
 	/*VAO, VBO, EBO
 	GENERATE VAO AND BIND*/
