@@ -31,7 +31,7 @@ public:
 
 	Path();
 
-	void Update();
+	void Update(float deltaTime);
 
 	inline unsigned int getLength() { return segments_.size(); }
 

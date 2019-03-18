@@ -2,9 +2,12 @@
 #include "../Headers/libs.h"
 
 #include <iostream>
+#include <utility>
+
+using namespace std; // test
 
 
-void processInput(GLFWwindow * window, glm::vec3 & position, glm::vec3 & rotation, glm::vec3 & scale ,Keyboard& kb) // test
+void processInput(GLFWwindow * window, glm::vec3 & position, glm::vec3 & rotation, glm::vec3 & scale, Keyboard& kb) // test
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
@@ -141,15 +144,26 @@ int main(void)
 		// keyboard functionality & path management
 		Keyboard kb;
 		Path p;
+		Hero h;
 
+		// Other variables...
 		float r = 0.0f; // test
 		float increment = 0.05f; // test
+		float oldTime; // todo: move to data structure class
+		float newTime;
+		float deltaTime;
+		oldTime = newTime = deltaTime = 0;
+
 		glm::vec3 postion(0.f);
 		glm::vec3 rotation(0.f);
 		glm::vec3 scale(0.f);
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window))
 		{
+
+			deltaTime = newTime - oldTime;
+			oldTime = newTime;
+			newTime = glfwGetTime();
 			processInput(window, postion, rotation, scale,kb);
 			// MVP matrices
 			glm::mat4 proj = glm::mat4(1.0f); //
@@ -166,13 +180,9 @@ int main(void)
 			shader.setMat4fv(mvp, "u_MVP");
 			/* Render here */
 			renderer.Clear();
-			//renderer.Clear();
 
-			//shader.use();
-			//va.Bind();
-			//ib.Bind();
 
-			// render queue
+			// Path render queue
 			// batch rendering ?
 			for (int i = 0; i < p.getLength(); ++i) {
 
@@ -212,7 +222,7 @@ int main(void)
 				//renderer.Draw(va, ib, shader);
 				mesh.render(&shader);
 			}
-			p.Update();
+			p.Update(deltaTime);
 
 			// test - uniforms
 			if (r > 1.0f) {
@@ -224,6 +234,11 @@ int main(void)
 
 			r += increment;
 
+			// Character render
+			cout << h.getPosition().first << ' ' << h.getPosition().second << endl;
+			h.update(deltaTime, kb.getDirX(), kb.getDirY());
+
+
 			/* Swap front and back buffers */
 			glfwSwapBuffers(window);
 
@@ -232,7 +247,7 @@ int main(void)
 		}
 
 		//va.Unbind();
-		//shader.unuse();
+		shader.unuse();
 		//vb.Unbind();
 		//ib.Unbind();
 	}

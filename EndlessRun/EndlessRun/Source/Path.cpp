@@ -14,14 +14,8 @@ Path::Path()
 	segments_.push_back({ 0, 0, 2, 40 });
 }
 
-void Path::Update()
+void Path::Update(float deltaTime)
 {
-
-	float deltaTime = newTime - oldTime;
-
-	oldTime = newTime;
-	newTime = glfwGetTime();
-
 
 	for (auto &s : segments_) { s.zOffset -= deltaTime * 8; }
 
