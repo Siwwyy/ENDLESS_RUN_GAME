@@ -87,24 +87,31 @@ int main(void)
 //	3,4,5 //triangle two, using 6 vertices
 //};
 
-		Vertex vertices[] =
+		Vertex vertices[] = // Path
 		{
 			//Position	0 1 2							//Color	RGB									//Texcoords (texture coordinates)			//Normals
-			//	TRIANGLE ONE
+			// TRIANGLE ONE
 			glm::vec3(0.9f,  8.0f, 0.0f),				glm::vec3(1.f, 0.f, 0.f),					glm::vec2(1.0f, 1.0f),						glm::vec3(0.f, 0.f, 1.f),
 			glm::vec3(0.9f, -8.0f, 0.0f),				glm::vec3(0.f, 1.f, 0.f),					glm::vec2(1.0f, 0.0f),						glm::vec3(0.f, 0.f, 1.f),
 			glm::vec3(-0.9f, -8.0f, 0.0f),				glm::vec3(0.f, 0.f, 1.f),					glm::vec2(0.0f, 0.0f),						glm::vec3(0.f, 0.f, 1.f),
-			//TRIANGLE TWO
+			// TRIANGLE TWO
 			glm::vec3(-0.9f,  8.0f, 0.0f),				glm::vec3(1.f, 1.f, 0.f),					glm::vec2(0.0f, 1.0f),						glm::vec3(0.f, 0.f, 1.f)
 
 		};
-		//float positions[] = {
-		//	// positions          // texture coords
-		//	 0.9f,  8.0f, 0.0f,   1.0f, 1.0f, // top right
-		//	 0.9f, -8.0f, 0.0f,   1.0f, 0.0f, // bottom right
-		//	-0.9f, -8.0f, 0.0f,   0.0f, 0.0f, // bottom left
-		//	-0.9f,  8.0f, 0.0f,   0.0f, 1.0f  // top left
-		//};
+
+		Vertex verticesHero[] = // Hero
+		{
+			//Position	0 1 2							//Color	RGB									//Texcoords (texture coordinates)			//Normals
+			// TRIANGLE ONE
+			glm::vec3(-0.5f, 0.5f, 0.f),				glm::vec3(1.f, 0.f, 0.f),					glm::vec2(0.f, 1.f),						glm::vec3(0.f, 0.f, 1.f),
+			glm::vec3(-0.5f, -0.5, 0.f),				glm::vec3(0.f, 1.f, 0.f),					glm::vec2(0.f, 0.f),						glm::vec3(0.f, 0.f, 1.f),
+			glm::vec3(0.5f, -0.5f, 0.f),				glm::vec3(0.f, 0.f, 1.f),					glm::vec2(1.f, 0.f),						glm::vec3(0.f, 0.f, 1.f),
+
+			// TRIANGLE TWO
+			glm::vec3(0.5f, 0.5f, 0.f),					glm::vec3(1.f, 1.f, 0.f),					glm::vec2(1.f, 1.f),						glm::vec3(0.f, 0.f, 1.f)
+
+		};
+
 		unsigned int indices[] = {
 			0, 1, 2,
 			2, 3, 0
@@ -114,30 +121,21 @@ int main(void)
 		GLCall(glEnable(GL_BLEND));
 		GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 
-		//// Set up vertex buffer & vertex array
-		//VertexArray va;
-		//VertexBuffer vb(vertices, 4 * 5 * sizeof(float));
-
-		//VertexBufferLayout layout;
-		//layout.Push<float>(3);
-		//layout.Push<float>(2);
-		//va.AddBuffer(vb, layout);
-
-		//// Set up index buffer
-		//IndexBuffer ib(indices, 6);
-
 		// Create shaders
 		Shader shader("Basic_vertex.glsl", "Basic_fragment.glsl");
 		shader.use();
 
 		// Textures
+		// todo: automatycznie poobracac pionowo teksturki
 		Texture textureCat("res/textures/kot.png", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
 		Texture textureCat2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
 		Texture textureDeer("res/textures/simpson.png", GL_TEXTURE_2D, 0);
+		Texture textureHero("res/textures/kacio.png", GL_TEXTURE_2D, 0);
 
 		// Mesh
 		Renderer renderer;
-		Mesh mesh(vertices, 4 * 5, indices, 2 * 3);
+		Mesh mesh(vertices, 4 * 5, indices, 2 * 3); // Path
+		Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3); // Hero
 
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // test
 
@@ -164,20 +162,15 @@ int main(void)
 			deltaTime = newTime - oldTime;
 			oldTime = newTime;
 			newTime = glfwGetTime();
-			processInput(window, postion, rotation, scale,kb);
+			processInput(window, postion, rotation, scale, kb);
 			// MVP matrices
 			glm::mat4 proj = glm::mat4(1.0f); //
 			glm::mat4 view = glm::mat4(1.0f); // "camera" / position  / rotation / scale / whatever of camera
 			glm::mat4 model = glm::mat4(1.0f); // "model" / "vertex" / pos / rot / scale of object
 			proj = glm::perspective(glm::radians(70.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 			model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-
-			// processInput(window, view, shader, x, y, kb); // test
-
 			glm::mat4 mvp = proj * view * model;
 
-			shader.setVec4f(glm::fvec4(0.8f, 0.3f, 0.8f, 1.0f), "u_Color");
-			shader.setMat4fv(mvp, "u_MVP");
 			/* Render here */
 			renderer.Clear();
 
@@ -187,8 +180,8 @@ int main(void)
 			for (int i = 0; i < p.getLength(); ++i) {
 
 				// calculate MVP matrix
-				//model = glm::translate(glm::mat4(1.0f), glm::vec3(-postion.x, -0.75f, -p[i].zOffset));
-				model = glm::translate(glm::mat4(1.0f), glm::vec3(-postion.x, -0.75f - postion.y, -p[i].zOffset));
+				model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -0.75f, -p[i].zOffset));
+				//model = glm::translate(glm::mat4(1.0f), glm::vec3(-postion.x, -0.75f - postion.y, -p[i].zOffset));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
@@ -209,7 +202,7 @@ int main(void)
 					break;
 
 				case 2:
-					shader.setVec4f(glm::fvec4(r/3, r/2, r + 0.2, 1.0f), "u_Color");
+					shader.setVec4f(glm::fvec4(r / 3, r / 2, r + 0.2, 1.0f), "u_Color");
 					shader.set1i(textureDeer.GetTextureUnit(), "u_Texture");
 					textureDeer.Bind();
 					break;
@@ -235,8 +228,17 @@ int main(void)
 			r += increment;
 
 			// Character render
-			cout << h.getPosition().first << ' ' << h.getPosition().second << endl;
+			//cout << h.getPosition().first << ' ' << h.getPosition().second << endl;
 			h.update(deltaTime, kb.getDirX(), kb.getDirY());
+			model = glm::translate(glm::mat4(1.0f), glm::vec3(h.getPosition().first, -0.75f + h.getPosition().second, -3.0f));
+			model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+			mvp = proj * view * model;
+			shader.setMat4fv(mvp, "u_MVP");
+			shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 0.5f), "u_Color");
+			shader.set1i(textureHero.GetTextureUnit(), "u_Texture");
+			textureHero.Bind();
+			shader.use();
+			meshHero.render(&shader);
 
 
 			/* Swap front and back buffers */
