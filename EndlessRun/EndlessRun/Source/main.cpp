@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-void processInput(GLFWwindow *window, glm::mat4 &view, Shader& shader, float &x, float &y, Keyboard& kb) // test
+void processInput(GLFWwindow * window, glm::vec3 & position, glm::vec3 & rotation, glm::vec3 & scale ,Keyboard& kb) // test
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
@@ -18,10 +18,11 @@ void processInput(GLFWwindow *window, glm::mat4 &view, Shader& shader, float &x,
 
 	kb.Update(newKeyStates);
 
-	x += (float)kb.getDirX() / 100;
-	y += (float)kb.getDirY() / 100;
-
-	view = glm::translate(view, glm::vec3(x, y, -3.0f));
+	//x += (float)kb.getDirX() / 100;
+	//y += (float)kb.getDirY() / 100;
+	position.x += (float)kb.getDirX() / 10;
+	position.y += (float)kb.getDirY() / 10;
+	//view = glm::translate(view, glm::vec3(x, y, -3.0f));
 }
 
 
@@ -143,10 +144,13 @@ int main(void)
 
 		float r = 0.0f; // test
 		float increment = 0.05f; // test
-
+		glm::vec3 postion(0.f);
+		glm::vec3 rotation(0.f);
+		glm::vec3 scale(0.f);
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window))
 		{
+			processInput(window, postion, rotation, scale,kb);
 			// MVP matrices
 			glm::mat4 proj = glm::mat4(1.0f); //
 			glm::mat4 view = glm::mat4(1.0f); // "camera" / position  / rotation / scale / whatever of camera
@@ -162,6 +166,7 @@ int main(void)
 			shader.setMat4fv(mvp, "u_MVP");
 			/* Render here */
 			renderer.Clear();
+			//renderer.Clear();
 
 			//shader.use();
 			//va.Bind();
@@ -172,7 +177,8 @@ int main(void)
 			for (int i = 0; i < p.getLength(); ++i) {
 
 				// calculate MVP matrix
-				model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -0.75f, -p[i].zOffset));
+				//model = glm::translate(glm::mat4(1.0f), glm::vec3(-postion.x, -0.75f, -p[i].zOffset));
+				model = glm::translate(glm::mat4(1.0f), glm::vec3(-postion.x, -0.75f - postion.y, -p[i].zOffset));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
