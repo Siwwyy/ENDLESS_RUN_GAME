@@ -184,12 +184,6 @@ int main()
 	////BIND VAO 0
 	//glBindVertexArray(0);
 
-
-
-
-
-
-
 	//*===*===*===*===*===*===*//
 	// Shaders & textures setup
 	Texture textureCat("res/textures/kot.png", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
@@ -200,6 +194,8 @@ int main()
 	glUseProgram(0);
 
 	//Renderer renderer;
+
+	// asdf
 
 	//*===*===*===*===*===*===*//
 	// Other variables...
