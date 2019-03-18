@@ -3,6 +3,28 @@
 
 #include <iostream>
 
+
+void processInput(GLFWwindow *window, glm::mat4 &view, Shader& shader, float &x, float &y, Keyboard& kb) // test
+{
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
+
+	KeyStates newKeyStates;
+
+	newKeyStates.W = (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS ? true : false);
+	newKeyStates.A = (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS ? true : false);
+	newKeyStates.S = (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS ? true : false);
+	newKeyStates.D = (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS ? true : false);
+
+	kb.Update(newKeyStates);
+
+	x += (float)kb.getDirX() / 100;
+	y += (float)kb.getDirY() / 100;
+
+	view = glm::translate(view, glm::vec3(x, y, -3.0f));
+}
+
+
 const unsigned int WIDTH = 1280;
 const unsigned int HEIGHT = 720;
 
