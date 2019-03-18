@@ -171,7 +171,7 @@ int main(void)
 			//shader.use();
 			//va.Bind();
 			//ib.Bind();
-
+			int a = 100;
 			// render queue
 			// batch rendering ?
 			for (int i = 0; i < p.getLength(); ++i) {
