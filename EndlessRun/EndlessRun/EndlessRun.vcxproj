@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Hero.cpp" />
     <ClCompile Include="Source\IndexBuffer.cpp" />
     <ClCompile Include="Source\Keyboard.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Assert.h" />
+    <ClInclude Include="Headers\Hero.h" />
     <ClInclude Include="Headers\Includes.h" />
     <ClInclude Include="Headers\IndexBuffer.h" />
     <ClInclude Include="Headers\Keyboard.h" />
