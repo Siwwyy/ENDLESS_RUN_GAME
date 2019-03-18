@@ -193,8 +193,6 @@ int main()
 
 	//Renderer renderer;
 
-	// asdf
-
 	//*===*===*===*===*===*===*//
 	// Other variables...
 	Path p;
