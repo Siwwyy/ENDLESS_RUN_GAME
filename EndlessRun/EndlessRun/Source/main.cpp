@@ -156,13 +156,25 @@ int main(void)
 		glm::vec3 rotation(0.f);
 		glm::vec3 scale(0.f);
 		/* Loop until the user closes the window */
-		while (!glfwWindowShouldClose(window))
+		while (!glfwWindowShouldClose(window)) // Game Loop
 		{
 
-			deltaTime = newTime - oldTime;
+			// Update
+			deltaTime = newTime - oldTime; // calculate elapsed time
 			oldTime = newTime;
-			newTime = glfwGetTime();
-			processInput(window, postion, rotation, scale, kb);
+			newTime = glfwGetTime(); 
+			processInput(window, postion, rotation, scale, kb); // get keyboard input
+			p.Update(deltaTime); // update path
+			h.update(deltaTime, kb.getDirX(), kb.getDirY()); // update hero
+
+			if (r > 1.0f)
+				increment = -0.05f;
+			else if (r < 0.0f) 
+				increment = 0.05f;
+			r += increment;
+
+			// Draw
+
 			// MVP matrices
 			glm::mat4 proj = glm::mat4(1.0f); //
 			glm::mat4 view = glm::mat4(1.0f); // "camera" / position  / rotation / scale / whatever of camera
@@ -175,7 +187,7 @@ int main(void)
 			renderer.Clear();
 
 
-			// Path render queue
+			// Path
 			// batch rendering ?
 			for (int i = 0; i < p.getLength(); ++i) {
 
@@ -186,7 +198,6 @@ int main(void)
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 
-				// bind the right texture
 				switch (p[i].textureId)
 				{
 				case 0:
@@ -210,26 +221,11 @@ int main(void)
 					break;
 				}
 
-				// render the segment
 				shader.use();
-				//renderer.Draw(va, ib, shader);
 				mesh.render(&shader);
 			}
-			p.Update(deltaTime);
 
-			// test - uniforms
-			if (r > 1.0f) {
-				increment = -0.05f;
-			}
-			else if (r < 0.0f) {
-				increment = 0.05f;
-			}
-
-			r += increment;
-
-			// Character render
-			//cout << h.getPosition().first << ' ' << h.getPosition().second << endl;
-			h.update(deltaTime, kb.getDirX(), kb.getDirY());
+			// Character
 			model = glm::translate(glm::mat4(1.0f), glm::vec3(h.getPosition().first, -0.75f + h.getPosition().second, -3.0f));
 			model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
 			mvp = proj * view * model;

@@ -19,7 +19,7 @@ public:
 
 private:
 	std::pair<float, float> Position; // {x, y}
-	//std::pair<float, float> Velocity; // {x, y}, predkosc
+	std::pair<float, float> Velocity; // {x, y}, predkosc
 
 	float Width, Height;
 };
