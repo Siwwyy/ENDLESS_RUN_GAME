@@ -127,10 +127,11 @@ int main(void)
 
 		// Textures
 		// todo: automatycznie poobracac pionowo teksturki
-		Texture textureCat("res/textures/kot.png", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
-		Texture textureCat2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
-		Texture textureDeer("res/textures/simpson.png", GL_TEXTURE_2D, 0);
-		Texture textureHero("res/textures/kacio.png", GL_TEXTURE_2D, 0);
+		Texture textureCat("res/textures/brick.jpg", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
+		//Texture textureCat("res/textures/kot.png", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
+	//	Texture textureCat2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
+		//Texture textureDeer("res/textures/simpson.png", GL_TEXTURE_2D, 0);
+		Texture textureHero("res/textures/kacio_hero.png", GL_TEXTURE_2D, 0);
 
 		// Mesh
 		Renderer renderer;
@@ -198,7 +199,8 @@ int main(void)
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 
-				switch (p[i].textureId)
+				textureCat.Bind();
+				/*switch (p[i].textureId)
 				{
 				case 0:
 					textureCat.Bind();
@@ -219,7 +221,7 @@ int main(void)
 					break;
 				default:
 					break;
-				}
+				}*/
 
 				shader.use();
 				mesh.render(&shader);

@@ -17,7 +17,7 @@ void Hero::update(float deltaTime, short mx, short my)
 	if (mx == -1 && Velocity.first >= 0) // go right on pressing D
 		Velocity.first = -1;
 	
-	Velocity.first *= 1.1f; // update velocity
+	Velocity.first *= 1.3f; // update velocity
 	float deltaX = deltaTime * Velocity.first;
 	Position.first += deltaX; // update player posision
 	
