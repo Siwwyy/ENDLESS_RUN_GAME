@@ -1,6 +1,6 @@
 ﻿  main.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\main.cpp(166): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\main.cpp(193): warning C4018: '<': signed/unsigned mismatch
-  EndlessRun.vcxproj -> E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\Debug\EndlessRun.exe
+  d:\studia\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+d:\studia\grafika\endless runner\endlessrun\endlessrun\source\main.cpp(166): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\studia\grafika\endless runner\endlessrun\endlessrun\source\main.cpp(193): warning C4018: '<': signed/unsigned mismatch
+  EndlessRun.vcxproj -> D:\Studia\Grafika\Endless Runner\EndlessRun\Debug\EndlessRun.exe

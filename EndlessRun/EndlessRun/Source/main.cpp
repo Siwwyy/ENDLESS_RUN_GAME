@@ -127,9 +127,9 @@ int main(void)
 
 		// Textures
 		// todo: automatycznie poobracac pionowo teksturki
-		Texture textureCat("res/textures/brick.jpg", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
-		//Texture textureCat("res/textures/kot.png", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
-	//	Texture textureCat2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
+		Texture textureBrick("res/textures/brick.jpg", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
+		//Texture textureBrick("res/textures/kot.png", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
+		//Texture textureBrick2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
 		//Texture textureDeer("res/textures/simpson.png", GL_TEXTURE_2D, 0);
 		Texture textureHero("res/textures/kacio_hero.png", GL_TEXTURE_2D, 0);
 
@@ -188,6 +188,7 @@ int main(void)
 			renderer.Clear();
 
 
+			int b = 0;
 			// Path
 			// batch rendering ?
 			for (int i = 0; i < p.getLength(); ++i) {
@@ -199,17 +200,17 @@ int main(void)
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 
-				textureCat.Bind();
+				textureBrick.Bind();
 				/*switch (p[i].textureId)
 				{
 				case 0:
-					textureCat.Bind();
+					textureBrick.Bind();
 					shader.setVec4f(glm::fvec4(r, 0.3f, 0.8f, 1.0f), "u_Color");
 					shader.set1i(textureDeer.GetTextureUnit(), "u_Texture");
 					break;
 
 				case 1:
-					textureCat2.Bind();
+					textureBrick2.Bind();
 					shader.setVec4f(glm::fvec4(r, 0.3f, 0.8f, 1.0f), "u_Color");
 					shader.set1i(textureDeer.GetTextureUnit(), "u_Texture");
 					break;
