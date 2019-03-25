@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <utility>
+#include <string>
 
 using namespace std; // test
 
@@ -21,11 +22,8 @@ void processInput(GLFWwindow * window, glm::vec3 & position, glm::vec3 & rotatio
 
 	kb.Update(newKeyStates);
 
-	//x += (float)kb.getDirX() / 100;
-	//y += (float)kb.getDirY() / 100;
 	position.x += (float)kb.getDirX() / 10;
 	position.y += (float)kb.getDirY() / 10;
-	//view = glm::translate(view, glm::vec3(x, y, -3.0f));
 }
 
 
@@ -67,7 +65,6 @@ int main(void)
 
 	{
 
-		//Vertex vertices[] =
 //{
 //	//Position	0 1 2							//Color	RGB									//Texcoords (texture coordinates)			//Normals
 ////	TRIANGLE ONE
@@ -127,11 +124,12 @@ int main(void)
 
 		// Textures
 		// todo: automatycznie poobracac pionowo teksturki
-		Texture textureBrick("res/textures/brick.jpg", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
-		//Texture textureBrick("res/textures/kot.png", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
-		//Texture textureBrick2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
-		//Texture textureDeer("res/textures/simpson.png", GL_TEXTURE_2D, 0);
-		Texture textureHero("res/textures/kacio_hero.png", GL_TEXTURE_2D, 0);
+		Texture textureBrick1("res/textures/brick.jpg", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
+		Texture textureBrick2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
+		Texture textureBrick3("res/textures/simpson.png", GL_TEXTURE_2D, 0);
+//		Texture textureHero2("res/textures/kacio_hero_2.png", GL_TEXTURE_2D, 0);
+	//	Texture textureHero3("res/textures/kacio_hero_3.png", GL_TEXTURE_2D, 0);
+		int currentHeroTexture = 1;
 
 		// Mesh
 		Renderer renderer;
@@ -167,6 +165,11 @@ int main(void)
 			processInput(window, postion, rotation, scale, kb); // get keyboard input
 			p.Update(deltaTime); // update path
 			h.update(deltaTime, kb.getDirX(), kb.getDirY()); // update hero
+			std::string name = "res/textures/kacio_hero_" + std::to_string(currentHeroTexture/5+1) + ".png";
+			Texture textureHero(name.c_str(), GL_TEXTURE_2D, 0);
+
+			
+
 
 			if (r > 1.0f)
 				increment = -0.05f;
@@ -187,8 +190,6 @@ int main(void)
 			/* Render here */
 			renderer.Clear();
 
-
-			int b = 0;
 			// Path
 			// batch rendering ?
 			for (int i = 0; i < p.getLength(); ++i) {
@@ -200,29 +201,28 @@ int main(void)
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 
-				textureBrick.Bind();
-				/*switch (p[i].textureId)
+				switch (p[i].textureId)
 				{
 				case 0:
-					textureBrick.Bind();
-					shader.setVec4f(glm::fvec4(r, 0.3f, 0.8f, 1.0f), "u_Color");
-					shader.set1i(textureDeer.GetTextureUnit(), "u_Texture");
+					textureBrick1.Bind();
+					shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+					shader.set1i(textureBrick1.GetTextureUnit(), "u_Texture");
 					break;
 
 				case 1:
 					textureBrick2.Bind();
-					shader.setVec4f(glm::fvec4(r, 0.3f, 0.8f, 1.0f), "u_Color");
-					shader.set1i(textureDeer.GetTextureUnit(), "u_Texture");
+					shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+					shader.set1i(textureBrick2.GetTextureUnit(), "u_Texture");
 					break;
 
 				case 2:
-					shader.setVec4f(glm::fvec4(r / 3, r / 2, r + 0.2, 1.0f), "u_Color");
-					shader.set1i(textureDeer.GetTextureUnit(), "u_Texture");
-					textureDeer.Bind();
+					shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+					shader.set1i(textureBrick3.GetTextureUnit(), "u_Texture");
+					textureBrick3.Bind();
 					break;
 				default:
 					break;
-				}*/
+				}
 
 				shader.use();
 				mesh.render(&shader);
@@ -235,6 +235,12 @@ int main(void)
 			shader.setMat4fv(mvp, "u_MVP");
 			shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 0.5f), "u_Color");
 			shader.set1i(textureHero.GetTextureUnit(), "u_Texture");
+
+
+		if (currentHeroTexture == 14) {
+				currentHeroTexture = 0;
+		}
+			++currentHeroTexture;
 			textureHero.Bind();
 			shader.use();
 			meshHero.render(&shader);
@@ -247,10 +253,7 @@ int main(void)
 			glfwPollEvents();
 		}
 
-		//va.Unbind();
 		shader.unuse();
-		//vb.Unbind();
-		//ib.Unbind();
 	}
 
 	glfwTerminate();

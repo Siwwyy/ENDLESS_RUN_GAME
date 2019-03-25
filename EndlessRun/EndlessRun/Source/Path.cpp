@@ -27,7 +27,8 @@ void Path::Update(float deltaTime)
 
 		unsigned int nextId = segments_.back().id + 1;
 
-		unsigned int textureId = rand() % 3;
+		//unsigned int textureId = rand() % 3;
+		unsigned int textureId = 0;
 
 		float offset = segments_.back().zOffset + 16;
 
