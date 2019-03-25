@@ -132,7 +132,8 @@ int main(void)
 	//	Texture textureCat2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
 		//Texture textureDeer("res/textures/simpson.png", GL_TEXTURE_2D, 0);
 		Texture textureHero("res/textures/kacio_hero.png", GL_TEXTURE_2D, 0);
-
+		//int a = 0 ;
+		int c = 12;
 		// Mesh
 		Renderer renderer;
 		Mesh mesh(vertices, 4 * 5, indices, 2 * 3); // Path
