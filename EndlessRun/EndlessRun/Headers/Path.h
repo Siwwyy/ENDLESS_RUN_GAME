@@ -27,7 +27,7 @@ public:
 		CAT1 = 1,
 		CAT2 = 2,
 		DEER = 3
-	};
+	}; 
 
 	Path();
 
