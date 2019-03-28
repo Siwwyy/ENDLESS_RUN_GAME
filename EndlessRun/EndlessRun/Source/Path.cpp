@@ -9,16 +9,15 @@ Path::Path()
 {
 	srand(time(0));
 
-	segments_.push_back({ 0, 1, 0, 8 });
-	segments_.push_back({ 0, 2, 1, 24 });
-	segments_.push_back({ 0, 0, 2, 40 });
+	segments_.push_back({ SEGMENT::REGULAR, TEXTURE::BRICK2, 0, 8 });
+	segments_.push_back({ SEGMENT::REGULAR, TEXTURE::BRICK3, 1, 24 });
+	segments_.push_back({ SEGMENT::REGULAR, TEXTURE::BRICK1, 2, 40 });
 }
 
 void Path::Update(float deltaTime)
 {
 
 	for (auto &s : segments_) { s.zOffset -= deltaTime * 8; }
-
 
 	if (segments_[0].zOffset <= -8)
 	{

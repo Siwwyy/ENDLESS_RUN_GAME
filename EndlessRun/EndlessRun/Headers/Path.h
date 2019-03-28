@@ -9,9 +9,11 @@
 
 struct pathSegment 
 {
-	unsigned int type; // 0 = regular, 1 = turn, ...
-	unsigned int textureId; // 1 = kot.png, 2 = kot2.png, 3 = rogacz.png
+	unsigned int type;
+	unsigned int textureId;
 	unsigned int id;
+	// unsigned int obstacleType;
+	// bool hasCoins; ?
 	float zOffset;
 };
 
@@ -19,15 +21,28 @@ class Path
 {
 public:
 
-	enum { // segment types
-		REGULAR
+	enum  SEGMENT { // pathSegment.type
+		REGULAR,
+		TURN_LEFT,
+		TURN_RIGHT,
+		TURN_T
 	};
 
-	enum { // segment textures
-		CAT1 = 1,
-		CAT2 = 2,
-		DEER = 3
+	enum TEXTURE { // pathSegment.textureId
+		BRICK1,
+		BRICK2,
+		BRICK3
 	};
+
+	// jedna przeszkoda na segment? po srodku? jeszcze jeden enum dla umiejscowienia przeszkody?
+	// co z lancuchami monet?
+	//enum OBSTACLE_TYPE {
+	//	NONE,
+	//	LOG,
+	//	ROCK_LEFT,
+	//	ROCK_CENTER,
+	//	ROCK_RIGHT
+	//};
 
 	Path();
 

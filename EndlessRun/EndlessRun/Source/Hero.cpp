@@ -49,8 +49,8 @@ void Hero::update(float deltaTime, short mx, short my)
 	float deltaY = deltaTime * Velocity.second;
 	Position.second += deltaY; // uodate player posision
 	
-	if (Position.second > 1)  // prevent player from jumping too high
-		Position.second = 1;
+	//if (Position.second > 1.20)  // prevent player from jumping too high
+	//	Position.second = 1.20;
 	
 
 	Velocity.second = Velocity.second + deltaTime * G; // update velocity
