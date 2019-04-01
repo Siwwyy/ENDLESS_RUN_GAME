@@ -94,7 +94,7 @@ Texture::Texture(const char* path, GLenum type, GLint texture_unit):	//SIWY WAS 
 	//}
 	this->type = type;
 	this->texture_unit = texture_unit;
-	unsigned char* image = SOIL_load_image(path, &this->width, &this->height, nullptr, SOIL_LOAD_RGB);
+	unsigned char* image = SOIL_load_image(path, &this->width, &this->height, nullptr, SOIL_LOAD_RGBA);
 	//unsigned char* image = SOIL_load_image("IMAGES/sunset.png", &image_width, &image_height, NULL, SOIL_LOAD_RGB);
 
 	GLuint texture; //0 means ID oh the image
@@ -115,7 +115,7 @@ Texture::Texture(const char* path, GLenum type, GLint texture_unit):	//SIWY WAS 
 		assert(image != NULL);
 		assert(width != NULL);
 		assert(height != NULL);
-		glTexImage2D(type, 0, GL_RGB, this->width, this->height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);	//char is also a byte
+		glTexImage2D(type, 0, GL_RGBA, this->width, this->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);	//char is also a byte
 		glGenerateMipmap(type);
 		glDisable(GL_CULL_FACE);	//both sides photo
 	}
