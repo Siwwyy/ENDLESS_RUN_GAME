@@ -126,6 +126,7 @@ int main(void)
 		Texture textureBrick1("res/textures/brick.jpg", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
 		Texture textureBrick2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
 		Texture textureBrick3("res/textures/simpson.png", GL_TEXTURE_2D, 0);
+		Texture textureFence("res/textures/fence.jpg", GL_TEXTURE_2D, 0);
 		Texture textureHero1("res/textures/kacio_hero_1.png", GL_TEXTURE_2D, 0);
 		Texture textureHero2("res/textures/kacio_hero_2.png", GL_TEXTURE_2D, 0);
 		Texture textureHero3("res/textures/kacio_hero_3.png", GL_TEXTURE_2D, 0);
@@ -135,6 +136,7 @@ int main(void)
 		Renderer renderer;
 		Mesh mesh(vertices, 4 * 5, indices, 2 * 3); // Path
 		Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3); // Hero
+		Mesh meshFence(vertices, 4 * 5, indices, 2 * 3); // Side fences
 
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // test
 
@@ -195,7 +197,7 @@ int main(void)
 				model = glm::translate(model, glm::vec3(0.0f, -0.75f, -p[i].zOffset));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 				//model = glm::rotate(model, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-				model = glm::rotate(model, glm::radians(90.0f * r), glm::vec3(0.0f, 0.0f, 1.0f)); // obracanie
+				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f)); // obracanie poziomo
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 
@@ -214,9 +216,9 @@ int main(void)
 					break;
 
 				case 2:
+					textureBrick3.Bind();
 					shader.setVec4f(glm::fvec4(r/2, r/3, 1.0f, 1.0f), "u_Color");
 					shader.set1i(textureBrick3.GetTextureUnit(), "u_Texture");
-					textureBrick3.Bind();
 					break;
 				default:
 					break;
@@ -224,6 +226,27 @@ int main(void)
 
 				shader.use();
 				mesh.render(&shader);
+
+				// Side fences
+				textureFence.Bind();
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(1.5f, -0.75f, -p[i].zOffset));
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
+				mvp = proj * view * model;
+				shader.setMat4fv(mvp, "u_MVP");
+				shader.set1i(textureFence.GetTextureUnit(), "u_Texture");
+				shader.use();
+				meshFence.render(&shader);
+
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(-1.5f, -0.75f, -p[i].zOffset));
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+				mvp = proj * view * model;
+				shader.setMat4fv(mvp, "u_MVP");
+				meshFence.render(&shader);
+
 			}
 
 			// Character
