@@ -1,80 +1,107 @@
 ﻿  Hero.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\studia\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\studia\grafika\endless runner\endlessrun\endlessrun\headers\path.h(36): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
-  VertexArray.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\studia\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\studia\grafika\endless runner\endlessrun\endlessrun\headers\path.h(36): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
-d:\studia\grafika\endless runner\endlessrun\endlessrun\source\vertexarray.cpp(25): warning C4312: 'type cast': conversion from 'unsigned int' to 'const void *' of greater size
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+d:\grafika\endless runner\endlessrun\endlessrun\headers\path.h(36): warning C4267: "return": konwersja z "size_t" do "unsigned int", możliwa utrata danych
+  IndexBuffer.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  Keyboard.cpp
   main.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\studia\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\studia\grafika\endless runner\endlessrun\endlessrun\headers\path.h(36): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
-d:\studia\grafika\endless runner\endlessrun\endlessrun\source\main.cpp(173): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-IndexBuffer.obj : error LNK2001: unresolved external symbol __glewBindBuffer
-Mesh.obj : error LNK2001: unresolved external symbol __glewBindBuffer
-VertexBuffer.obj : error LNK2001: unresolved external symbol __glewBindBuffer
-IndexBuffer.obj : error LNK2001: unresolved external symbol __glewBufferData
-Mesh.obj : error LNK2001: unresolved external symbol __glewBufferData
-VertexBuffer.obj : error LNK2001: unresolved external symbol __glewBufferData
-IndexBuffer.obj : error LNK2001: unresolved external symbol __glewDeleteBuffers
-Mesh.obj : error LNK2001: unresolved external symbol __glewDeleteBuffers
-VertexBuffer.obj : error LNK2001: unresolved external symbol __glewDeleteBuffers
-IndexBuffer.obj : error LNK2001: unresolved external symbol __glewGenBuffers
-Mesh.obj : error LNK2001: unresolved external symbol __glewGenBuffers
-VertexBuffer.obj : error LNK2001: unresolved external symbol __glewGenBuffers
-main.obj : error LNK2019: unresolved external symbol glewInit referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwSetWindowShouldClose referenced in function "void __cdecl processInput(struct GLFWwindow *,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,class Keyboard &)" (?processInput@@YAXPEAUGLFWwindow@@AEAU?$vec@$02M$0A@@glm@@11AEAVKeyboard@@@Z)
-main.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwGetKey referenced in function "void __cdecl processInput(struct GLFWwindow *,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,class Keyboard &)" (?processInput@@YAXPEAUGLFWwindow@@AEAU?$vec@$02M$0A@@glm@@11AEAVKeyboard@@@Z)
-main.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwSwapInterval referenced in function main
-Mesh.obj : error LNK2001: unresolved external symbol __glewEnableVertexAttribArray
-VertexArray.obj : error LNK2001: unresolved external symbol __glewEnableVertexAttribArray
-Mesh.obj : error LNK2001: unresolved external symbol __glewVertexAttribPointer
-VertexArray.obj : error LNK2001: unresolved external symbol __glewVertexAttribPointer
-Mesh.obj : error LNK2001: unresolved external symbol __glewCreateVertexArrays
-Mesh.obj : error LNK2001: unresolved external symbol __glewBindVertexArray
-VertexArray.obj : error LNK2001: unresolved external symbol __glewBindVertexArray
-Mesh.obj : error LNK2001: unresolved external symbol __glewDeleteVertexArrays
-VertexArray.obj : error LNK2001: unresolved external symbol __glewDeleteVertexArrays
-Path.obj : error LNK2019: unresolved external symbol glfwGetTime referenced in function "public: void __cdecl Path::Update(void)" (?Update@Path@@QEAAXXZ)
-Shader.obj : error LNK2001: unresolved external symbol __glewAttachShader
-Shader.obj : error LNK2001: unresolved external symbol __glewCompileShader
-Shader.obj : error LNK2001: unresolved external symbol __glewCreateProgram
-Shader.obj : error LNK2001: unresolved external symbol __glewCreateShader
-Shader.obj : error LNK2001: unresolved external symbol __glewDeleteProgram
-Shader.obj : error LNK2001: unresolved external symbol __glewDeleteShader
-Shader.obj : error LNK2001: unresolved external symbol __glewGetProgramInfoLog
-Shader.obj : error LNK2001: unresolved external symbol __glewGetProgramiv
-Shader.obj : error LNK2001: unresolved external symbol __glewGetShaderInfoLog
-Shader.obj : error LNK2001: unresolved external symbol __glewGetShaderiv
-Shader.obj : error LNK2001: unresolved external symbol __glewGetUniformLocation
-Shader.obj : error LNK2001: unresolved external symbol __glewLinkProgram
-Shader.obj : error LNK2001: unresolved external symbol __glewShaderSource
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform1f
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform1i
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform2fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform3fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform4fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUniformMatrix3fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUniformMatrix4fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUseProgram
-Texture.obj : error LNK2019: unresolved external symbol SOIL_load_image referenced in function "public: __cdecl Texture::Texture(char const *,unsigned int,int)" (??0Texture@@QEAA@PEBDIH@Z)
-Texture.obj : error LNK2019: unresolved external symbol SOIL_free_image_data referenced in function "public: __cdecl Texture::Texture(char const *,unsigned int,int)" (??0Texture@@QEAA@PEBDIH@Z)
-Texture.obj : error LNK2001: unresolved external symbol __glewActiveTexture
-Texture.obj : error LNK2001: unresolved external symbol __glewGenerateMipmap
-VertexArray.obj : error LNK2001: unresolved external symbol __glewGenVertexArrays
-D:\Studia\Grafika\Endless Runner\EndlessRun\\Dependencies\SOIL2\lib\soil2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-D:\Studia\Grafika\Endless Runner\EndlessRun\\Dependencies\SOIL2\lib\soil2-debug.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-D:\Studia\Grafika\Endless Runner\EndlessRun\\Dependencies\GLEW\lib\Release\Win32\glew32s.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-D:\Studia\Grafika\Endless Runner\EndlessRun\\Dependencies\GLFW\lib-vc2015\glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-D:\Studia\Grafika\Endless Runner\EndlessRun\x64\Debug\EndlessRun.exe : fatal error LNK1120: 48 unresolved externals
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+d:\grafika\endless runner\endlessrun\endlessrun\headers\path.h(36): warning C4267: "return": konwersja z "size_t" do "unsigned int", możliwa utrata danych
+d:\grafika\endless runner\endlessrun\endlessrun\source\main.cpp(167): warning C4244: "=": konwersja z "double" do "float", możliwa utrata danych
+d:\grafika\endless runner\endlessrun\endlessrun\source\main.cpp(194): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  Material.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  Mesh.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  Path.cpp
+d:\grafika\endless runner\endlessrun\endlessrun\headers\path.h(36): warning C4267: "return": konwersja z "size_t" do "unsigned int", możliwa utrata danych
+d:\grafika\endless runner\endlessrun\endlessrun\source\path.cpp(10): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  Renderer.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  Shader.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  Texture.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+d:\grafika\endless runner\endlessrun\endlessrun\source\texture.cpp(100): warning C4101: "texture": lokalna zmienna, do której nie istnieje odwołanie
+  VertexArray.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+d:\grafika\endless runner\endlessrun\endlessrun\headers\path.h(36): warning C4267: "return": konwersja z "size_t" do "unsigned int", możliwa utrata danych
+d:\grafika\endless runner\endlessrun\endlessrun\source\vertexarray.cpp(25): warning C4312: "typ rzutowania": konwersja z "unsigned int" na "const void *" jest większej wielkości
+  VertexBuffer.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  Generowanie kodu...
+IndexBuffer.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewBindBuffer
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewBindBuffer
+VertexBuffer.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewBindBuffer
+IndexBuffer.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewBufferData
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewBufferData
+VertexBuffer.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewBufferData
+IndexBuffer.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewDeleteBuffers
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewDeleteBuffers
+VertexBuffer.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewDeleteBuffers
+IndexBuffer.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGenBuffers
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGenBuffers
+VertexBuffer.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGenBuffers
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glewInit przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwInit przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwTerminate przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwWindowHint przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwCreateWindow przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwWindowShouldClose przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwSetWindowShouldClose przywołany w funkcji "void __cdecl processInput(struct GLFWwindow *,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,class Keyboard &)" (?processInput@@YAXPEAUGLFWwindow@@AEAU?$vec@$02M$0A@@glm@@11AEAVKeyboard@@@Z)
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwPollEvents przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwGetKey przywołany w funkcji "void __cdecl processInput(struct GLFWwindow *,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,class Keyboard &)" (?processInput@@YAXPEAUGLFWwindow@@AEAU?$vec@$02M$0A@@glm@@11AEAVKeyboard@@@Z)
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwGetTime przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwMakeContextCurrent przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwSwapBuffers przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwSwapInterval przywołany w funkcji main
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewEnableVertexAttribArray
+VertexArray.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewEnableVertexAttribArray
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewVertexAttribPointer
+VertexArray.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewVertexAttribPointer
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewCreateVertexArrays
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewBindVertexArray
+VertexArray.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewBindVertexArray
+Mesh.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewDeleteVertexArrays
+VertexArray.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewDeleteVertexArrays
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewAttachShader
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewCompileShader
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewCreateProgram
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewCreateShader
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewDeleteProgram
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewDeleteShader
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGetProgramInfoLog
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGetProgramiv
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGetShaderInfoLog
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGetShaderiv
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGetUniformLocation
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewLinkProgram
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewShaderSource
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewUniform1f
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewUniform1i
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewUniform2fv
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewUniform3fv
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewUniform4fv
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewUniformMatrix3fv
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewUniformMatrix4fv
+Shader.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewUseProgram
+Texture.obj : error LNK2019: nierozpoznany zewnętrzny symbol SOIL_load_image przywołany w funkcji "public: __cdecl Texture::Texture(char const *,unsigned int,int)" (??0Texture@@QEAA@PEBDIH@Z)
+Texture.obj : error LNK2019: nierozpoznany zewnętrzny symbol SOIL_free_image_data przywołany w funkcji "public: __cdecl Texture::Texture(char const *,unsigned int,int)" (??0Texture@@QEAA@PEBDIH@Z)
+Texture.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewActiveTexture
+Texture.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGenerateMipmap
+VertexArray.obj : error LNK2001: nierozpoznany symbol zewnętrzny __glewGenVertexArrays
+D:\Grafika\Endless Runner\EndlessRun\\Dependencies\SOIL2\lib\soil2.lib : warning LNK4272: wystąpił konflikt typu maszyny biblioteki „x86” z typem maszyny docelowej „x64”
+D:\Grafika\Endless Runner\EndlessRun\\Dependencies\SOIL2\lib\soil2-debug.lib : warning LNK4272: wystąpił konflikt typu maszyny biblioteki „x86” z typem maszyny docelowej „x64”
+D:\Grafika\Endless Runner\EndlessRun\\Dependencies\GLEW\lib\Release\Win32\glew32s.lib : warning LNK4272: wystąpił konflikt typu maszyny biblioteki „x86” z typem maszyny docelowej „x64”
+D:\Grafika\Endless Runner\EndlessRun\\Dependencies\GLFW\lib-vc2015\glfw3.lib : warning LNK4272: wystąpił konflikt typu maszyny biblioteki „x86” z typem maszyny docelowej „x64”
+D:\Grafika\Endless Runner\EndlessRun\x64\Debug\EndlessRun.exe : fatal error LNK1120: liczba nierozpoznanych elementów zewnętrznych: 48

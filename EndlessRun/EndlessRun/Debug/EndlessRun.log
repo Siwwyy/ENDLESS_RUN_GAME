@@ -1,5 +1,5 @@
-﻿  Texture.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  d:\grafika\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-d:\grafika\endless runner\endlessrun\endlessrun\source\texture.cpp(100): warning C4101: 'texture': unreferenced local variable
+﻿  Path.cpp
+d:\grafika\endless runner\endlessrun\endlessrun\source\path.cpp(10): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+d:\grafika\endless runner\endlessrun\endlessrun\source\path.cpp(29): warning C4244: "-=": konwersja z "double" do "float", możliwa utrata danych
+d:\grafika\endless runner\endlessrun\endlessrun\source\path.cpp(30): warning C4305: "*=": obcięcie z "double" do "float"
   EndlessRun.vcxproj -> D:\Grafika\Endless Runner\EndlessRun\Debug\EndlessRun.exe
