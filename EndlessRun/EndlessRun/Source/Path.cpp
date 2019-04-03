@@ -1,5 +1,6 @@
 #include "../Headers/Path.h"
 
+#include <cmath>
 #include <cstdlib>
 #include <ctime>
 
@@ -18,25 +19,28 @@ Path::Path()
 
 void Path::Update(float deltaTime)
 {
-	int i = 0;
-	for (auto &s : segments_) {
+
+	for (int i = 1; i <= segments_.size() ; ++i) {
+		pathSegment &s = segments_[i-1];
 
 		s.zOffset -= deltaTime * 8;
 
-		// todo automatyczne obracanie
-		//bool shouldRotate = s.rotation || segments_[i+1].rotation;
+		// automatyczne obracanie
+		bool shouldRotate = s.rotation || segments_[i - 1].rotation;
 
-		//if (s.zOffset < 10 && shouldRotate) {
-		//	s.rotation -=  s.rotation ? 0.006 : 0.002;
-		//	s.xOffset *= 0.99;
-		//}
 
-		//++i;
-	
+		if (s.zOffset < 10 && shouldRotate) {
+			s.rotation *= 0.96;
+
+			if (abs(s.rotation) < 0.001f) {
+				s.rotation = 0.0f;
+				//s.xOffset = 0;
+			}
+		}
+
 	}
 
-
-	if (segments_[0].zOffset <= -8)
+	if (segments_[0].zOffset + abs(segments_[0].xOffset) <= -8)
 	{
 
 		pathSegment &lastSegment = segments_.back();
@@ -51,7 +55,12 @@ void Path::Update(float deltaTime)
 
 		float offsetX = lastSegment.xOffset + 8 * lastSegment.rotation + (!lastSegment.rotation ? 8 : 0);
 
-		float offsetZ = lastSegment.zOffset +(!lastSegment.rotation ? 16 : 0);
+		float offsetZ = lastSegment.zOffset + (!lastSegment.rotation ? 16 : 0);
+
+		if (lastSegment.xOffset && !lastSegment.rotation) {
+			offsetZ += lastSegment.xOffset;
+		}
+
 
 		float rotation = lastSegment.rotation;
 

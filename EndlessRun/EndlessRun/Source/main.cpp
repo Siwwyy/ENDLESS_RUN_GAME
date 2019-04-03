@@ -26,8 +26,8 @@ void processInput(GLFWwindow * window, glm::vec3 & position, glm::vec3 & rotatio
 	position.y += (float)kb.getDirY() / 10;
 }
 
-const unsigned int WIDTH = 1280;
-const unsigned int HEIGHT = 720;
+const unsigned int WIDTH = 1920;
+const unsigned int HEIGHT = 1080;
 
 int main(void)
 {
@@ -44,6 +44,8 @@ int main(void)
 
 	/* Create a windowed mode window and its OpenGL context */
 	window = glfwCreateWindow(WIDTH, HEIGHT, "Hello World", NULL, NULL);
+	// window = glfwCreateWindow(WIDTH, HEIGHT, "Hello World", glfwGetPrimaryMonitor(), NULL); // fullscreen
+
 	if (!window)
 	{
 		glfwTerminate();
@@ -194,10 +196,28 @@ int main(void)
 				// calculate MVP matrix
 				// todo move calculations to shaders
 				model = glm::mat4(1.0f);
-				model = glm::translate(model, glm::vec3(0.0f + p[i].xOffset, -0.75f, -p[i].zOffset));
+				// te do wyjebania
+				//model = glm::translate(model, glm::vec3(0.0f, -0.75f, -p[i].zOffset));
+				//model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 1.0f, 0.0f));
+				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+				// te do zostawienia
+				// 1. po³ó¿
+				model = glm::translate(model, glm::vec3(0.0f, -0.75f, 0.0f));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-				model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f)); // obracanie poziomo
+				// 2. przesuñ o zOffset
+				model = glm::translate(model, glm::vec3(0.0f, -p[i].zOffset, 0.0f));
+				// 3. obróæ o rotation
+				model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+				// 4. przesuñ o xOffset
+				model = glm::translate(model, glm::vec3(0.0f, -p[i].xOffset, 0.0f)); // z, x, y
 				
+
+				//model = glm::translate(model, glm::vec3(p[i].xOffset, -0.75f, -p[i].zOffset));
+				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+				//model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+
+
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 

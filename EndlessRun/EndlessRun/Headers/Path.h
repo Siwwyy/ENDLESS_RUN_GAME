@@ -31,9 +31,9 @@ public:
 		DEER = 3
 	}; 
 
+	void Update(float deltaTime);
 	Path();
 
-	void Update(float deltaTime);
 
 	inline unsigned int getLength() { return segments_.size(); }
 
