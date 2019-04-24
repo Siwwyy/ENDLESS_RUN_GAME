@@ -168,10 +168,10 @@ int main(void)
 		*/
 
 		ISoundEngine *SoundEngine = createIrrKlangDevice();
-		
+		SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3", GL_TRUE);
 		//////////////////////////////////////////////////////////////////
 		//SoundEngine->drop();
-
+		int a = 0;
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window)) // Game Loop
 		{
