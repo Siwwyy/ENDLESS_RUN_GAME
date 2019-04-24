@@ -5,8 +5,11 @@
 #include <utility>
 #include <string>
 
-using namespace std; // test
+#include <irrKlang.h>	//for music
+using namespace irrklang;
 
+using namespace std; // test
+//#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
 void processInput(GLFWwindow * window, glm::vec3 & position, glm::vec3 & rotation, glm::vec3 & scale, Keyboard& kb) // test
 {
@@ -157,6 +160,18 @@ int main(void)
 		glm::vec3 postion(0.f);
 		glm::vec3 rotation(0.f);
 		glm::vec3 scale(0.f);
+
+
+
+		/*
+			MUSIC
+		*/
+
+		ISoundEngine *SoundEngine = createIrrKlangDevice();
+		
+		//////////////////////////////////////////////////////////////////
+		//SoundEngine->drop();
+
 		/* Loop until the user closes the window */
 		while (!glfwWindowShouldClose(window)) // Game Loop
 		{
@@ -260,21 +275,25 @@ int main(void)
 				currentHeroTexture = 0;
 			}
 
+			
 			switch (currentHeroTexture/8+1)
 			{
 			case 1:
 				textureHero1.Bind();
 				shader.set1i(textureHero1.GetTextureUnit(), "u_Texture");
+				//SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3", GL_TRUE);
 				break;
 
 			case 2:
 				textureHero2.Bind();
 				shader.set1i(textureHero2.GetTextureUnit(), "u_Texture");
+				//SoundEngine->setAllSoundsPaused();
 				break;
 
 			case 3:
 				textureHero3.Bind();
 				shader.set1i(textureHero3.GetTextureUnit(), "u_Texture");
+				//SoundEngine->setAllSoundsPaused();
 				break;
 			default:
 				break;
