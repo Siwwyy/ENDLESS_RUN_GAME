@@ -13,7 +13,7 @@ Path::Path()
 	segments_.push_back({ 0, 2, 1, 0, 24, 0 });
 	segments_.push_back({ 0, 0, 2, 0, 40, 0 });
 	segments_.push_back({ 0, 0, 2, 0, 56, 0 });
-	segments_.push_back({ 0, 0, 2, 7, 56 + 8, 1 });
+	segments_.push_back({ 0, 0, 2, 7, 56 + 8, 0 });
 }
 
 void Path::Update(float deltaTime)

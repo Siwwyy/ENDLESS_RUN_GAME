@@ -222,10 +222,27 @@ int main(void)
 				// calculate MVP matrix
 				// todo move calculations to shaders
 				model = glm::mat4(1.0f);
-				model = glm::translate(model, glm::vec3(0.0f + p[i].xOffset, -0.75f, -p[i].zOffset));
+				// te do wyjebania
+				//model = glm::translate(model, glm::vec3(0.0f, -0.75f, -p[i].zOffset));
+				//model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 1.0f, 0.0f));
+				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+				// te do zostawienia
+				// 1. po��
+				model = glm::translate(model, glm::vec3(0.0f, -0.75f, 0.0f));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-				model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f)); // obracanie poziomo
+				// 2. przesu� o zOffset
+				model = glm::translate(model, glm::vec3(0.0f, -p[i].zOffset, 0.0f));
+				// 3. obr�� o rotation
+				model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+				// 4. przesu� o xOffset
+				model = glm::translate(model, glm::vec3(0.0f, -p[i].xOffset, 0.0f)); // z, x, y
 				
+
+				//model = glm::translate(model, glm::vec3(p[i].xOffset, -0.75f, -p[i].zOffset));
+				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+				//model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 
@@ -255,12 +272,12 @@ int main(void)
 				shader.use();
 				mesh.render(&shader);
 
-				 //Side fences
+				// Side fences
 				textureFence.Bind();
 				model = glm::mat4(1.0f);
 				model = glm::translate(model, glm::vec3(1.5f, -0.75f, -p[i].zOffset));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 				shader.set1i(textureFence.GetTextureUnit(), "u_Texture");
@@ -275,9 +292,7 @@ int main(void)
 				shader.setMat4fv(mvp, "u_MVP");
 				meshFence.render(&shader);
 
-
-
-			
+			}
 
 				//delete ptr_texture;
 			}
