@@ -1,6 +1,6 @@
 #include "../Headers/Includes.h"
 #include "../Headers/libs.h"
-
+#include "../Headers/Obstacle.h"
 #include <iostream>
 #include <utility>
 #include <string>
@@ -65,7 +65,7 @@ int main(void)
 
 	std::cout << glGetString(GL_VERSION) << std::endl;
 
-	{
+	//{
 
 //{
 //	//Position	0 1 2							//Color	RGB									//Texcoords (texture coordinates)			//Normals
@@ -129,6 +129,9 @@ int main(void)
 		Texture textureBrick1("res/textures/brick.jpg", GL_TEXTURE_2D, 0);		//0 means -> 0 ID
 		Texture textureBrick2("res/textures/kot2.png", GL_TEXTURE_2D, 0);
 		Texture textureBrick3("res/textures/simpson.png", GL_TEXTURE_2D, 0);
+		Texture textureObstacle("res/textures/simpson.png", GL_TEXTURE_2D, 0);
+		Texture textureObstacle1("res/textures/kot2.png", GL_TEXTURE_2D, 0);
+		Texture textureObstacle2("res/textures/simpson.png", GL_TEXTURE_2D, 0);
 		Texture textureFence("res/textures/fence.jpg", GL_TEXTURE_2D, 0);
 		Texture textureHero1("res/textures/kacio_hero_1.png", GL_TEXTURE_2D, 0);
 		Texture textureHero2("res/textures/kacio_hero_2.png", GL_TEXTURE_2D, 0);
@@ -148,7 +151,16 @@ int main(void)
 		Keyboard kb;
 		Path p;
 		Hero h;
-
+		Obstacle Obstacle_Object;
+		Texture * ptr_texture = nullptr;
+		//Obstacle_Object.push_texture(&textureBrick1);
+	//	Obstacle_Object.push_texture(&textureBrick2);
+		//Obstacle_Object.push_texture(&textureBrick3);
+		Obstacle_Object.push_texture(&textureObstacle);
+		Obstacle_Object.push_texture(&textureObstacle1);
+		Obstacle_Object.push_texture(&textureObstacle2);
+		//std::cout << &textureObstacle << endl;	//working
+		//std::cin.get();
 		// Other variables...
 		float r = 0.0f;
 		float increment = 0.05f;
@@ -173,6 +185,7 @@ int main(void)
 		//SoundEngine->drop();
 		int a = 0;
 		/* Loop until the user closes the window */
+		size_t obstacle_counter = 0;
 		while (!glfwWindowShouldClose(window)) // Game Loop
 		{
 
@@ -242,26 +255,31 @@ int main(void)
 				shader.use();
 				mesh.render(&shader);
 
-				// Side fences
-				//textureFence.Bind();
-				//model = glm::mat4(1.0f);
-				//model = glm::translate(model, glm::vec3(1.5f, -0.75f, -p[i].zOffset));
-				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
-				//mvp = proj * view * model;
-				//shader.setMat4fv(mvp, "u_MVP");
-				//shader.set1i(textureFence.GetTextureUnit(), "u_Texture");
-				//shader.use();
-				//meshFence.render(&shader);
+				 //Side fences
+				textureFence.Bind();
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(1.5f, -0.75f, -p[i].zOffset));
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));	
+				mvp = proj * view * model;
+				shader.setMat4fv(mvp, "u_MVP");
+				shader.set1i(textureFence.GetTextureUnit(), "u_Texture");
+				shader.use();
+				meshFence.render(&shader);
 
-				//model = glm::mat4(1.0f);
-				//model = glm::translate(model, glm::vec3(-1.5f, -0.75f, -p[i].zOffset));
-				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-				//mvp = proj * view * model;
-				//shader.setMat4fv(mvp, "u_MVP");
-				//meshFence.render(&shader);
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(-1.5f, -0.75f, -p[i].zOffset));
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+				mvp = proj * view * model;
+				shader.setMat4fv(mvp, "u_MVP");
+				meshFence.render(&shader);
 
+
+
+			
+
+				//delete ptr_texture;
 			}
 
 			// Character
@@ -302,17 +320,44 @@ int main(void)
 			shader.use();
 			meshHero.render(&shader);
 
-
+			if (obstacle_counter % 23 == 0)
+			{
+				//Obstacle
+			//Obstacle_Object.Create_Obstacle();	//returns a pointer to the choosen texture
+		//	Obstacle_Object.Create_Obstacle()->Bind();
+				ptr_texture = (Obstacle_Object.Create_Obstacle());
+				//std::cout << ptr_texture << endl;	//works
+				//std::cin.get();
+				ptr_texture->Bind();
+				//std::cin.get();
+				model = glm::mat4(1.0f);
+				model = glm::translate(model, glm::vec3(1.0f, -0.75f, -10.0f));
+				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+				//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+				mvp = proj * view * model;
+				shader.setMat4fv(mvp, "u_MVP");
+				shader.set1i(ptr_texture->GetTextureUnit(), "u_Texture");
+				
+				shader.use();
+				mesh.render(&shader);
+				obstacle_counter = 0;
+		
+			}
+			
+			//Obstacle_Object.Create_Obstacle();	//returns a pointer to the choosen texture
 			/* Swap front and back buffers */
 			glfwSwapBuffers(window);
 
 			/* Poll for and process events */
 			glfwPollEvents();
+			++obstacle_counter;
 		}
 
 		shader.unuse();
-	}
-
+		//delete ptr_texture;
+	//}
+	ptr_texture = nullptr;
 	glfwTerminate();
 	return 0;
 }

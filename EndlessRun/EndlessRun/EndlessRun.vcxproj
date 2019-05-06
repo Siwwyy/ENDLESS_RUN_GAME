@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Headers\Obstacle.cpp" />
     <ClCompile Include="Source\Hero.cpp" />
     <ClCompile Include="Source\IndexBuffer.cpp" />
     <ClCompile Include="Source\Keyboard.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="Headers\libs.h" />
     <ClInclude Include="Headers\Material.h" />
     <ClInclude Include="Headers\Mesh.h" />
+    <ClInclude Include="Headers\Obstacle.h" />
     <ClInclude Include="Headers\Path.h" />
     <ClInclude Include="Headers\Renderer.h" />
     <ClInclude Include="Headers\Shader.h" />
