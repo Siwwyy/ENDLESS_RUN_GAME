@@ -49,9 +49,9 @@ void Path::Update(float deltaTime)
 
 		unsigned int textureId = 0; //rand() % 3;
 
-		float offsetX = lastSegment.xOffset + 8 * lastSegment.rotation + (!lastSegment.rotation ? 8 : 0);
+		float offsetX = lastSegment.xOffset + 8 * lastSegment.rotation;// + (!lastSegment.rotation ? 8 : 0);
 
-		float offsetZ = lastSegment.zOffset +(!lastSegment.rotation ? 16 : 0);
+		float offsetZ = lastSegment.zOffset + 8; // (!lastSegment.rotation ? 16 : 0);
 
 		float rotation = lastSegment.rotation;
 

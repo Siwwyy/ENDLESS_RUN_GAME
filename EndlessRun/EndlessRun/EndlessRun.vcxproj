@@ -77,7 +77,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\irrKlang\include;$(SolutionDir)\Dependencies\GLM\include;$(SolutionDir)\Dependencies\SOIL2\include;$(SolutionDir)\Dependencies\GLFW\include;$(SolutionDir)\Dependencies\GLEW\include;$(SolutionDir)\Dependencies\imgui;%(AdditionalIncludeDirectories);$(SolutionDir)Dependencies\stb_image</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\irrKlang\bin;$(SolutionDir)\Dependencies\irrKlang\lib;$(SolutionDir)\Dependencies\SOIL2\lib;$(SolutionDir)\Dependencies\GLFW\lib-vc2015;$(SolutionDir)\Dependencies\GLEW\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -91,7 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\Dependencies\irrKlang\include;$(SolutionDir)\Dependencies\GLM\include;$(SolutionDir)\Dependencies\SOIL2\include;$(SolutionDir)\Dependencies\GLFW\include;$(SolutionDir)\Dependencies\GLEW\include;$(SolutionDir)\Dependencies\imgui;%(AdditionalIncludeDirectories);</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\Dependencies\irrKlang\bin;$(SolutionDir)\Dependencies\irrKlang\lib;$(SolutionDir)\Dependencies\SOIL2\lib;$(SolutionDir)\Dependencies\GLFW\lib-vc2015;$(SolutionDir)\Dependencies\GLEW\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
