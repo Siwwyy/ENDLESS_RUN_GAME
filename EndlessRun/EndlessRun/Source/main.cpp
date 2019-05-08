@@ -139,6 +139,8 @@ int main(void)
 
 
 		Texture background_menu_texture("res/textures/menu_background_image.png", GL_TEXTURE_2D, 0);
+		Texture background_logo("res/textures/logo_endless_run_game.png", GL_TEXTURE_2D, 0);
+		Texture background_press_space("res/textures/press_space.png", GL_TEXTURE_2D, 0);
 
 		
 
@@ -242,6 +244,7 @@ int main(void)
 		float b = 0;
 		float c = 0;
 		float d = 0;
+		bool tym = false;
 				while (!glfwWindowShouldClose(window)) // Game Loop
 				{
 					if (GetAsyncKeyState(VK_SPACE))
@@ -251,8 +254,8 @@ int main(void)
 
 					if (skip == true)
 					{
-						glClearColor(0.3f, 0.5f, 0.5f, 0.5f);
-						glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+						//glClearColor(0.3f, 0.5f, 0.5f, 0.5f);
+						//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 						// Update
 						deltaTime = newTime - oldTime; // calculate elapsed time
 						oldTime = newTime;
@@ -432,51 +435,74 @@ int main(void)
 					}
 					else
 					{
-						renderer.Clear();
-						//glClearColor(0.f, 0.f, 0.f, 1.f);
-						glClearColor(a,b,c, 1.f);
-						glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-						//glm::mat4 proj = glm::mat4(1.0f); //
-						//glm::mat4 view = glm::mat4(1.0f); // "camera"
-						//glm::mat4 model = glm::mat4(1.0f); // "object"
+						glm::mat4 proj = glm::mat4(1.0f); //
+						glm::mat4 view = glm::mat4(1.0f); // "camera"
+						glm::mat4 model = glm::mat4(1.0f); // "object"
 						//proj = glm::perspective(glm::radians(70.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
-						////model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-						//glm::mat4 mvp = proj * view * model;
-									// MVP matrices
-						//glm::mat4 proj = glm::mat4(1.0f); //
-						//glm::mat4 view = glm::mat4(1.0f); // "camera"
-						//glm::mat4 model = glm::mat4(1.0f); // "object"
-						//proj = glm::perspective(glm::radians(70.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
-						////model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-						//glm::mat4 mvp = proj * view * model;
+						proj = glm::perspective(glm::radians(50.0f), ((float)WIDTH / (float)HEIGHT)/2, 0.1f, 100.0f);
+						model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0.3f, -1.0f));
+						model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+						glm::mat4 mvp = proj * view * model;
+						shader.setMat4fv(mvp, "u_MVP");
+						shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
 
-						///* Render here */
-						//renderer.Clear();
-						//background_menu_texture.Bind();
-						//shader.setVec4f(glm::fvec4(-1.5f, -0.75f, -5.0f, 10.0f), "u_Color");
-						//shader.set1i(background_menu_texture.GetTextureUnit(), "u_Texture");
-						//shader.use();
-						//mesh.render(&shader);
-						a += 0.001;
-						b += 0.001;
-						c += 0.02;
-						d += 0.02;
-						
-						if (a > 2)
+						renderer.Clear();
+
+
+
+						background_menu_texture.Bind();
+						shader.set1i(background_menu_texture.GetTextureUnit(), "u_Texture");
+						shader.use();
+						meshHero.render(&shader);
+
+
+
+
+						proj = glm::perspective(glm::radians(80.0f), (float)WIDTH / (float)HEIGHT/2, 0.1f, 100.0f);
+						model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0.45f, -1.0f));
+						model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+						mvp = proj * view * model;
+						shader.setMat4fv(mvp, "u_MVP");
+						shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+
+
+						background_logo.Bind();
+						shader.set1i(background_logo.GetTextureUnit(), "u_Texture");
+						shader.use();
+						meshHero.render(&shader);
+
+
+
+
+						proj = glm::perspective(glm::radians(90.0f), ((float)WIDTH / (float)HEIGHT)/1.5f, 0.1f, 100.0f);
+						model = glm::translate(glm::mat4(1.0f), glm::vec3(0, -0.5f, -1.0f));
+						model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+						mvp = proj * view * model;
+						shader.setMat4fv(mvp, "u_MVP");
+						shader.setVec4f(glm::fvec4(1.0f, a, 1.0f, 1.0f), "u_Color");
+						background_press_space.Bind();
+						shader.set1i(background_press_space.GetTextureUnit(), "u_Texture");
+
+						shader.use();
+						meshHero.render(&shader);
+					
+
+						if (tym == true)
 						{
-							a = 0;
+							a -= 0.1f;
 						}
-						if (b > 2)
+						else if (tym == false)
 						{
-							b = 0;
+							a += 0.1f;
 						}
-						if (c > 2)
+
+						if (a > 2.0f)
 						{
-							c = 0;
+							tym = true;
 						}
-						if (d > 2)
+						else if (a < 0.0f)
 						{
-							d = 0;
+							tym = false;
 						}
 					}
 					/* Swap front and back buffers */
@@ -489,8 +515,6 @@ int main(void)
 				shader.unuse();
 				//delete ptr_texture;
 				//break;
-			//}
-	//	}
 	ptr_texture = nullptr;
 	glfwTerminate();
 	return 0;
