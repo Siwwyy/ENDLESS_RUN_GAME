@@ -251,7 +251,10 @@ int main(void)
 					{
 						skip = true;
 					}
-
+					else if (GetAsyncKeyState(VK_ESCAPE))
+					{
+						skip = false;
+					}
 					if (skip == true)
 					{
 						//glClearColor(0.3f, 0.5f, 0.5f, 0.5f);
@@ -428,7 +431,6 @@ int main(void)
 							//obstacle_counter = 0;
 
 						}
-
 						//Obstacle_Object.Create_Obstacle();	//returns a pointer to the choosen texture
 					
 						++obstacle_counter;
