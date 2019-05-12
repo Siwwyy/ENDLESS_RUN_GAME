@@ -187,9 +187,10 @@ int main(void) {
 	*/
 
 	ISoundEngine *SoundEngine = createIrrKlangDevice();
-	// SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3", GL_TRUE);
+	SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3", GL_TRUE);
 	//////////////////////////////////////////////////////////////////
-	// SoundEngine->drop();
+	//SoundEngine->
+	//
 	// int a = 0;
 	/* Loop until the user closes the window */
 	size_t obstacle_counter = 0;
@@ -238,10 +239,12 @@ int main(void) {
 	{
 		if (GetAsyncKeyState(VK_SPACE)) {
 			skip = true;
+			SoundEngine->drop();
 		} else if (GetAsyncKeyState(VK_ESCAPE)) {
 			skip = false;
 		}
-		if (skip == true) {
+		if (skip == true)
+		{
 			// glClearColor(0.3f, 0.5f, 0.5f, 0.5f);
 			// glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 			// Update
