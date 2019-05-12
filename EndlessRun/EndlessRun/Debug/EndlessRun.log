@@ -1,1 +1,4 @@
-﻿  EndlessRun.vcxproj -> C:\dev\Endless Runner\EndlessRun\Debug\EndlessRun.exe
+﻿  main.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  EndlessRun.vcxproj -> C:\dev\Endless Runner\EndlessRun\Debug\EndlessRun.exe

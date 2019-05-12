@@ -16,7 +16,7 @@ void processInput(GLFWwindow *window, glm::vec3 &position, glm::vec3 &rotation, 
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
-		
+
 	KeyStates newKeyStates;
 
 	newKeyStates.W = (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS);
@@ -67,17 +67,19 @@ int main(void) {
 	//{
 
 	//{
-	//	//Position	0 1 2							//Color	RGB									//Texcoords (texture coordinates)
+	//	//Position	0 1 2							//Color	RGB									//Texcoords (texture
+	// coordinates)
 	////Normals
 	////	TRIANGLE ONE
 	//	glm::vec3(-0.5f, 0.5f, 0.f),				glm::vec3(1.f, 0.f, 0.f),					glm::vec2(0.f, 1.f),
-	//glm::vec3(0.f, 0.f, 1.f), 	glm::vec3(-0.5f, -0.5, 0.f),				glm::vec3(0.f, 1.f, 0.f),
-	//glm::vec2(0.f, 0.f),						glm::vec3(0.f, 0.f, 1.f), 	glm::vec3(0.5f, -0.5f, 0.f),
-	//glm::vec3(0.f, 0.f, 1.f),					glm::vec2(1.f, 0.f),						glm::vec3(0.f, 0.f, 1.f),
+	// glm::vec3(0.f, 0.f, 1.f), 	glm::vec3(-0.5f, -0.5, 0.f),				glm::vec3(0.f, 1.f, 0.f),
+	// glm::vec2(0.f, 0.f),						glm::vec3(0.f, 0.f, 1.f), 	glm::vec3(0.5f, -0.5f, 0.f),
+	// glm::vec3(0.f, 0.f, 1.f),					glm::vec2(1.f, 0.f),						glm::vec3(0.f,
+	// 0.f, 1.f),
 	//
 	////TRIANGLE TWO
 	//	glm::vec3(0.5f, 0.5f, 0.f),					glm::vec3(1.f, 1.f, 0.f),					glm::vec2(1.f, 1.f),
-	//glm::vec3(0.f, 0.f, 1.f)
+	// glm::vec3(0.f, 0.f, 1.f)
 	//};
 	////unsigned nrOfVertices = (sizeof(vertices) / sizeof(Vertex));	//amount of vertices
 	////
@@ -89,8 +91,7 @@ int main(void) {
 	//};
 
 	Vertex vertices[] = // Path
-		{				// Position	0 1 2							//Color	RGB									//Texcoords (texture
-		 // coordinates)			//Normals
+		{				// Position	0 1 2	//Color	RGB		//Texcoords (texture // coordinates)			//Normals
 		 // TRIANGLE ONE
 		 glm::vec3(0.9f, 8.0f, 0.0f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(1.0f, 1.0f), glm::vec3(0.f, 0.f, 1.f),
 		 glm::vec3(0.9f, -8.0f, 0.0f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(1.0f, 0.0f), glm::vec3(0.f, 0.f, 1.f),
@@ -100,16 +101,24 @@ int main(void) {
 
 		};
 
-	Vertex verticesHero[] = // Hero
-		{					// Position	0 1 2							//Color	RGB									//Texcoords (texture
-		 // coordinates)			//Normals
-		 // TRIANGLE ONE
-		 glm::vec3(-0.5f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
-		 glm::vec3(-0.5f, -0.5, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
-		 glm::vec3(0.5f, -0.5f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+	Vertex verticesObstacle[] = // Obstacles
+		{glm::vec3(-0.25f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
+		 glm::vec3(-0.25f, 0.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+		 glm::vec3(0.25f, 0.0f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
 
 		 // TRIANGLE TWO
-		 glm::vec3(0.5f, 1.0f, 0.f), glm::vec3(1.f, 1.f, 0.f), glm::vec2(1.f, 1.f), glm::vec3(0.f, 0.f, 1.f)
+		 glm::vec3(0.25f, 1.0f, 0.f), glm::vec3(1.f, 1.f, 0.f), glm::vec2(1.f, 1.f), glm::vec3(0.f, 0.f, 1.f)
+
+		};
+
+	Vertex verticesHero[] = // Hero
+		{glm::vec3(-0.5f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f),	   glm::vec2(0.f, 1.f),
+		 glm::vec3(0.f, 0.f, 1.f),	  glm::vec3(-0.5f, -0.5, 0.f), glm::vec3(0.f, 1.f, 0.f),
+		 glm::vec2(0.f, 0.f),		  glm::vec3(0.f, 0.f, 1.f),	   glm::vec3(0.5f, -0.5f, 0.f),
+		 glm::vec3(0.f, 0.f, 1.f),	  glm::vec2(1.f, 0.f),		   glm::vec3(0.f, 0.f, 1.f),
+
+		 glm::vec3(0.5f, 1.0f, 0.f),  glm::vec3(1.f, 1.f, 0.f),	   glm::vec2(1.f, 1.f),
+		 glm::vec3(0.f, 0.f, 1.f)
 
 		};
 
@@ -148,9 +157,10 @@ int main(void) {
 
 	// Mesh
 	Renderer renderer;
-	Mesh mesh(vertices, 4 * 5, indices, 2 * 3);			// Path
-	Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3); // Hero
-	Mesh meshFence(vertices, 4 * 5, indices, 2 * 3);	// Side fences
+	Mesh mesh(vertices, 4 * 5, indices, 2 * 3);					// Path
+	Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3);			// Hero
+	Mesh meshObstacle(verticesObstacle, 4 * 5, indices, 2 * 3); // Hero
+	Mesh meshFence(vertices, 4 * 5, indices, 2 * 3);			// Side fences
 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // test
 
@@ -267,25 +277,17 @@ int main(void) {
 				// calculate MVP matrix
 				// todo move calculations to shaders
 				model = glm::mat4(1.0f);
-				// te do wyjebania
-				// model = glm::translate(model, glm::vec3(0.0f, -0.75f, -p[i].zOffset));
-				// model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 1.0f, 0.0f));
-				// model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
 				// te do zostawienia
-				// 1. po��
+				// 1. poloz
 				model = glm::translate(model, glm::vec3(0.0f, -0.75f, 0.0f));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-				// 2. przesu� o zOffset
+				// 2. przesun o zOffset
 				model = glm::translate(model, glm::vec3(0.0f, -p[i].zOffset, 0.0f));
-				// 3. obr�� o rotation
+				// 3. obroc o rotation
 				model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-				// 4. przesu� o xOffset
+				// 4. przesun o xOffset
 				model = glm::translate(model, glm::vec3(0.0f, -p[i].xOffset, 0.0f)); // z, x, y
-
-				// model = glm::translate(model, glm::vec3(p[i].xOffset, -0.75f, -p[i].zOffset));
-				// model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-				// model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
@@ -313,18 +315,28 @@ int main(void) {
 				}
 
 				shader.use();
+				mesh.render(&shader);
 
 				// Obstacle
-				// recalc mvp, bind texture, render
+				model =
+					glm::translate(glm::mat4(1.0f), glm::vec3(p[i].obstacle.ph() * 0.5f, -0.35f /* + HEIGHT */, -3.0f));
+				model = glm::translate(model, glm::vec3(0.0f, 0.0f, -p[i].zOffset));
+				model = glm::rotate(model, glm::radians(180.0f),
+									glm::vec3(1.0f, 0.0f, 0.0f)); // tekstura, todo: wyciac po poprawce w klasie texture
+				mvp = proj * view * model;
+
+				shader.setMat4fv(mvp, "u_MVP");
+				shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
 
 				textureObstacle.Bind();
-				mesh.render(&shader);
+				shader.set1i(textureObstacle.GetTextureUnit(), "u_Texture");
 				shader.use();
-				mesh.render(&shader);
+				meshObstacle.render(&shader);
 
 				// Side fences
 				textureFence.Bind();
 				model = glm::mat4(1.0f);
+				int ph = p[i].obstacle.ph();
 				model = glm::translate(model, glm::vec3(1.5f, -0.75f, -p[i].zOffset));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -341,8 +353,6 @@ int main(void) {
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 				meshFence.render(&shader);
-
-				// delete ptr_texture;
 			}
 
 			// Character

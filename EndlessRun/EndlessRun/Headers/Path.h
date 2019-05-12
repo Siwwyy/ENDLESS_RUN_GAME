@@ -15,7 +15,7 @@ struct pathSegment
 	unsigned int id;
 	float xOffset;
 	float zOffset;
-	Obstacle o;
+	Obstacle obstacle;
 	float rotation; // [-1, 1], 0 = normal  
 };
 

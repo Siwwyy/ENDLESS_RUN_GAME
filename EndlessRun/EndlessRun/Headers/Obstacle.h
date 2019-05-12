@@ -18,21 +18,26 @@ class Obstacle {
 	Obstacle() /*: _t("")*/ {
 		unsigned int seed = static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count());
 		std::default_random_engine generator(seed);
-		_pv = POS_VER(generator() % MIDDLE_BOTTOM + 1);
-		_ph = POS_HOR(generator() % MIDDLE_RIGHT + 1);
+
+		//_pv = POS_VER(generator() % MIDDLE_BOTTOM + 1);
+		//_ph = POS_HOR(generator() % MIDDLE_RIGHT + 1);
+
+		_ph = (generator() % 3) - 1;
 
 		// todo: texture
 	}
 
-	inline POS_HOR ph() { return _ph; }
+	//inline POS_HOR ph() { return _ph; }
+	inline int ph() const { return _ph; }
 	inline POS_VER pv() { return _pv; }
 
-	//inline Texture &texture() { return _t; }
+	// inline Texture &texture() { return _t; }
 
   private:
-	POS_HOR _ph;
+	// POS_HOR _ph;
+	int _ph;
 	POS_VER _pv;
-	//Texture _t;
+	// Texture _t;
 };
 
 #endif /* _OBSTACLE_H_ */
