@@ -2,10 +2,11 @@
 #define _PATH_H_
 #pragma once
 
-//#include "Includes.h"
+#include "Includes.h"
 #include "libs.h"
 
 #include <vector>
+#include "Obstacle.h"
 
 struct pathSegment 
 {
@@ -14,6 +15,7 @@ struct pathSegment
 	unsigned int id;
 	float xOffset;
 	float zOffset;
+	Obstacle o;
 	float rotation; // [-1, 1], 0 = normal  
 };
 

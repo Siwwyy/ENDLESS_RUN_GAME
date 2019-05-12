@@ -2,91 +2,37 @@
 #define _OBSTACLE_H_
 #pragma once
 
-/*
-	OPENGL AND CONNECTED LIBRARIES
-*/
-//GLEW
-#include <GL/glew.h>
-//GLFW
-#include <GLFW/glfw3.h>
+#include "../Headers/Includes.h"
+#include "../Headers/libs.h"
 
-//GLM
-#include <glm.hpp>
-#include <vec2.hpp>
-#include <vec3.hpp>
-#include <vec4.hpp>
-#include <mat4x4.hpp>
-#include <gtc\matrix_transform.hpp>
-#include <gtc\type_ptr.hpp>
-
-//SOIL2
-#include<SOIL2.h>
-
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-
-/*
-	BASIC LIBRARIES
-*/
-#include <iostream>
-#include <windows.h>
-#include <string>
-#include <vector>
-#include <fstream>
+#include <chrono>
 #include <random>
 
-#include "Vertex.h"
-#include "Shader.h"
-#include "Texture.h"
+class Obstacle {
 
+  public:
+	enum POS_VER { TOP, MIDDLE, BOTTOM, TOP_MIDDLE_BOTTOM, TOP_MIDDLE, MIDDLE_BOTTOM };
 
-class Obstacle
-{
-private:
-	/*
-		VARIABLES PRIVATE
-	*/
-	std::vector<Texture *> Textures;
+	enum POS_HOR { LEFT, CENTER, RIGHT, LEFT_MIDDLE_RIGHT, LEFT_MIDDLE, MIDDLE_RIGHT };
 
-	
-	//////////////////////////////////////////////////////////////////////////////
-	/*
-		FUNKCJE PRIVATE
-	*/
+	Obstacle() /*: _t("")*/ {
+		unsigned int seed = static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count());
+		std::default_random_engine generator(seed);
+		_pv = POS_VER(generator() % MIDDLE_BOTTOM + 1);
+		_ph = POS_HOR(generator() % MIDDLE_RIGHT + 1);
 
-	//////////////////////////////////////////////////////////////////////////////
-protected:
+		// todo: texture
+	}
 
-public:
-	/*
-		KONSTRUKTORY PUBLIC
-	*/
-	Obstacle();
-	//////////////////////////////////////////////////////////////////////////////
-	/*
-		FUNKCJE PUBLIC
-	*/
-	//void push_texture(const Texture & texture);
-	void push_texture(Texture * texture);
-	//void Create_Obstacle();
-	Texture * Create_Obstacle();
-	//////////////////////////////////////////////////////////////////////////////
-	/*
-		SETTERY PUBLIC
-	*/
+	inline POS_HOR ph() { return _ph; }
+	inline POS_VER pv() { return _pv; }
 
-	//////////////////////////////////////////////////////////////////////////////
-	/*
-		GETTERY PUBLIC
-	*/
+	//inline Texture &texture() { return _t; }
 
-	//////////////////////////////////////////////////////////////////////////////
-	/*
-		DESTRUKTOR
-	*/
-	~Obstacle();
-	//////////////////////////////////////////////////////////////////////////////
+  private:
+	POS_HOR _ph;
+	POS_VER _pv;
+	//Texture _t;
 };
-
 
 #endif /* _OBSTACLE_H_ */

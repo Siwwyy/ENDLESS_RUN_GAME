@@ -15,5 +15,6 @@
 #include "Mesh.h"
 #include "Texture.h"
 #include "Hero.h"
+#include "Obstacle.h"
 
 #endif /* _INCLUDES_H_ */

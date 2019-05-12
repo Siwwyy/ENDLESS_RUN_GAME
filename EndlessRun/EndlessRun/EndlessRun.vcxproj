@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Headers\Obstacle.cpp" />
     <ClCompile Include="Source\Hero.cpp" />
     <ClCompile Include="Source\IndexBuffer.cpp" />
     <ClCompile Include="Source\Keyboard.cpp" />
@@ -159,6 +158,9 @@
     <ClInclude Include="Headers\VertexArray.h" />
     <ClInclude Include="Headers\VertexBuffer.h" />
     <ClInclude Include="Headers\VertexBufferLayout.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".clang-format" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

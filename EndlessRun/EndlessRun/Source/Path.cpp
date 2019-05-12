@@ -9,11 +9,13 @@ Path::Path()
 {
 	srand(time(0));
 
-	segments_.push_back({ 0, 1, 0, 0,  8, 0 });
-	segments_.push_back({ 0, 2, 1, 0, 24, 0 });
-	segments_.push_back({ 0, 0, 2, 0, 40, 0 });
-	segments_.push_back({ 0, 0, 2, 0, 56, 0 });
-	segments_.push_back({ 0, 0, 2, 7, 56 + 8, 0 });
+	Obstacle ob;
+
+	segments_.push_back({ 0, 1, 0, 0,  8, ob, 0 });
+	segments_.push_back({ 0, 2, 1, 0, 24, ob, 0 });
+	segments_.push_back({ 0, 0, 2, 0, 40, ob, 0 });
+	segments_.push_back({ 0, 0, 2, 0, 56, ob, 0 });
+	segments_.push_back({ 0, 0, 2, 7, 56 + 8, ob, 0 });
 }
 
 void Path::Update(float deltaTime)
@@ -53,9 +55,11 @@ void Path::Update(float deltaTime)
 
 		float offsetZ = lastSegment.zOffset + 8; // (!lastSegment.rotation ? 16 : 0);
 
+		Obstacle ob;
+
 		float rotation = lastSegment.rotation;
 
-		segments_.push_back({ 0, textureId, nextId, offsetX, offsetZ, rotation });
+		segments_.push_back({ 0, textureId, nextId, offsetX, offsetZ, ob, rotation });
 	}
 
 
