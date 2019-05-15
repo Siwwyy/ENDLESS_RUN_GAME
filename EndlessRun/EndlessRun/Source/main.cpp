@@ -101,13 +101,23 @@ int main(void) {
 
 		};
 
+	// Vertex verticesObstacle[] = // Obstacles
+	//	{glm::vec3(-0.25f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
+	//	 glm::vec3(-0.25f, 0.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+	//	 glm::vec3(0.25f, 0.0f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+
+	//	 // TRIANGLE TWO
+	//	 glm::vec3(0.25f, 1.0f, 0.f), glm::vec3(1.f, 1.f, 0.f), glm::vec2(1.f, 1.f), glm::vec3(0.f, 0.f, 1.f)
+
+	//	};
+
 	Vertex verticesObstacle[] = // Obstacles
-		{glm::vec3(-0.25f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
-		 glm::vec3(-0.25f, 0.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
-		 glm::vec3(0.25f, 0.0f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+		{glm::vec3(-0.2f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
+		 glm::vec3(-0.2f, 0.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+		 glm::vec3(0.2f, 0.0f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
 
 		 // TRIANGLE TWO
-		 glm::vec3(0.25f, 1.0f, 0.f), glm::vec3(1.f, 1.f, 0.f), glm::vec2(1.f, 1.f), glm::vec3(0.f, 0.f, 1.f)
+		 glm::vec3(0.2f, 1.0f, 0.f), glm::vec3(1.f, 1.f, 0.f), glm::vec2(1.f, 1.f), glm::vec3(0.f, 0.f, 1.f)
 
 		};
 
@@ -186,10 +196,10 @@ int main(void) {
 		MUSIC
 	*/
 
-	ISoundEngine *SoundEngine = createIrrKlangDevice();
-	SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3", GL_TRUE);
+	// ISoundEngine *SoundEngine = createIrrKlangDevice();
+	// SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3", GL_TRUE);
 	//////////////////////////////////////////////////////////////////
-	//SoundEngine->
+	// SoundEngine->
 	//
 	// int a = 0;
 	/* Loop until the user closes the window */
@@ -203,24 +213,6 @@ int main(void) {
 		mesh.render(&shader);*/
 
 	//	renderer.Draw()
-
-	// ptr_texture = (Obstacle_Object.Create_Obstacle());
-	// std::cout << ptr_texture << endl;	//works
-	// std::cin.get();
-	// background_menu_texture.Bind();
-	////std::cin.get();
-	// model = glm::mat4(1.0f);
-	// model = glm::translate(model, glm::vec3(1.0f, -0.75f, -10.0f));
-	////model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-	////model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-	////model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	// mvp = proj * view * model;
-	// shader.setMat4fv(mvp, "u_MVP");
-	// shader.set1i(ptr_texture->GetTextureUnit(), "u_Texture");
-
-	// shader.use();
-	// mesh.render(&shader);
-	// obstacle_counter = 0;
 
 	// CREATE MENU HERE
 	// if (GetAsyncKeyState(VK_SPACE))
@@ -239,12 +231,11 @@ int main(void) {
 	{
 		if (GetAsyncKeyState(VK_SPACE)) {
 			skip = true;
-			SoundEngine->drop();
+			// SoundEngine->drop();
 		} else if (GetAsyncKeyState(VK_ESCAPE)) {
 			skip = false;
 		}
-		if (skip == true)
-		{
+		if (skip == true) {
 			// glClearColor(0.3f, 0.5f, 0.5f, 0.5f);
 			// glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 			// Update
@@ -321,11 +312,20 @@ int main(void) {
 				mesh.render(&shader);
 
 				// Obstacle
-				model =
-					glm::translate(glm::mat4(1.0f), glm::vec3(p[i].obstacle.ph() * 0.5f, -0.35f /* + HEIGHT */, -3.0f));
-				model = glm::translate(model, glm::vec3(0.0f, 0.0f, -p[i].zOffset));
-				model = glm::rotate(model, glm::radians(180.0f),
-									glm::vec3(1.0f, 0.0f, 0.0f)); // tekstura, todo: wyciac po poprawce w klasie texture
+
+				// adjust position
+				Obstacle::TYPE type = p[i].obstacle.type();
+				Obstacle::POS pos = p[i].obstacle.pos();
+
+				float px = float(pos-1)/2;
+
+				float py = 0.0f;
+				py += (pos == 1)*0.25f;
+				// py += 
+
+				model = glm::translate(glm::mat4(1.0f), glm::vec3(px, py, -3.0f - p[i].zOffset));
+				// tekstura, todo: wyciac po poprawce w klasie texture
+				model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 				mvp = proj * view * model;
 
 				shader.setMat4fv(mvp, "u_MVP");
@@ -334,13 +334,19 @@ int main(void) {
 				textureObstacle.Bind();
 				shader.set1i(textureObstacle.GetTextureUnit(), "u_Texture");
 				shader.use();
+
+				// pick right vertex array
+				// (type < 2) &&  meshObstacle1.render(&shader);	// h:2, w:1
+				// (type == 2) && meshObstacle2.render(&shader); // h:3, w:2
+				// (type > 2) &&  meshObstacle3.render(&shader); // h:2, w:2
+
 				meshObstacle.render(&shader);
 
 				// Side fences
 				textureFence.Bind();
 				model = glm::mat4(1.0f);
-				int ph = p[i].obstacle.ph();
-				model = glm::translate(model, glm::vec3(1.5f, -0.75f, -p[i].zOffset));
+
+				model = glm::translate(model, glm::vec3(2.0f, -0.75f, -p[i].zOffset));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 				mvp = proj * view * model;
@@ -350,7 +356,7 @@ int main(void) {
 				meshFence.render(&shader);
 
 				model = glm::mat4(1.0f);
-				model = glm::translate(model, glm::vec3(-1.5f, -0.75f, -p[i].zOffset));
+				model = glm::translate(model, glm::vec3(-2.0f, -0.75f, -p[i].zOffset));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 				mvp = proj * view * model;
@@ -361,8 +367,8 @@ int main(void) {
 			// Character
 			model = glm::translate(glm::mat4(1.0f),
 								   glm::vec3(h.getPosition().first, -0.75f + h.getPosition().second, -3.0f));
-			model = glm::rotate(model, glm::radians(180.0f),
-								glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+			// todo: wyciac po poprawce w klasie texture
+			model = glm::rotate(model, glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 			mvp = proj * view * model;
 			shader.setMat4fv(mvp, "u_MVP");
 			shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
@@ -398,7 +404,7 @@ int main(void) {
 			meshHero.render(&shader);
 
 		} else {
-			glm::mat4 proj = glm::mat4(1.0f);  //
+			glm::mat4 proj = glm::mat4(1.0f);
 			glm::mat4 view = glm::mat4(1.0f);  // "camera"
 			glm::mat4 model = glm::mat4(1.0f); // "object"
 			// proj = glm::perspective(glm::radians(70.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);

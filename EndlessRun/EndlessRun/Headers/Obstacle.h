@@ -11,32 +11,36 @@
 class Obstacle {
 
   public:
-	enum POS_VER { TOP, MIDDLE, BOTTOM, TOP_MIDDLE_BOTTOM, TOP_MIDDLE, MIDDLE_BOTTOM };
+	enum TYPE { JUMP, SLIDE, OMIT, JUMP_WIDE, OMIT_WIDE }; // slide == wide btw
 
-	enum POS_HOR { LEFT, CENTER, RIGHT, LEFT_MIDDLE_RIGHT, LEFT_MIDDLE, MIDDLE_RIGHT };
+	enum POS { LEFT, CENTER, RIGHT };
 
 	Obstacle() /*: _t("")*/ {
 		unsigned int seed = static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count());
 		std::default_random_engine generator(seed);
 
-		//_pv = POS_VER(generator() % MIDDLE_BOTTOM + 1);
-		//_ph = POS_HOR(generator() % MIDDLE_RIGHT + 1);
+		_t = TYPE(generator() % 5);
 
-		_ph = (generator() % 3) - 1;
+		_t = (TYPE)2;
+
+		if (_t < 3) {
+			_p = POS(generator() % 3);
+		} else { // type: *_WIDE
+			_p = POS(generator() % 2);
+		}
 
 		// todo: texture
 	}
 
-	//inline POS_HOR ph() { return _ph; }
-	inline int ph() const { return _ph; }
-	inline POS_VER pv() { return _pv; }
+	inline TYPE type() const { return _t; }
+	inline POS pos() const { return _p; }
 
 	// inline Texture &texture() { return _t; }
 
   private:
-	// POS_HOR _ph;
-	int _ph;
-	POS_VER _pv;
+	TYPE _t;
+	POS _p;
+
 	// Texture _t;
 };
 
