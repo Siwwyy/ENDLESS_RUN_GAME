@@ -89,6 +89,7 @@ void increase_score(int & score)
 	if (score > 9) 
 	{
 		score = 0;
+		score = 0;
 	}
 	this_thread::sleep_for(std::chrono::seconds(1)); 
 }
