@@ -46,6 +46,7 @@ private:
 	unsigned int type;
 	GLint texture_unit;
 public:
+	Texture();
 	Texture(const std::string& path);
 	Texture( const char*path , GLenum type, GLint texture_unit);
 	~Texture();

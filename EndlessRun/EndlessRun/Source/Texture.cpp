@@ -29,7 +29,10 @@
 //	}
 //}
 
-Texture::Texture(const char* path, GLenum type, GLint texture_unit):	//SIWY WAS HERE
+Texture::Texture(){};
+
+Texture::Texture(const char *path, GLenum type, GLint texture_unit)
+	: // SIWY WAS HERE
 	type(type),
 	texture_unit(texture_unit)
 	//m_RendererID(0), 
