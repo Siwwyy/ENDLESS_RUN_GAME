@@ -3,8 +3,8 @@
 #include "../Headers/libs.h"
 #include <iostream>
 #include <string>
-#include <utility>
 #include <thread>
+#include <utility>
 #include <windows.h>
 
 #include <irrKlang.h> //for music
@@ -12,16 +12,16 @@ using namespace irrklang;
 using namespace std; // test
 //#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
-void render_score(int &your_score, Shader & shader, Mesh & meshHero ,glm::mat4 & mvp, glm::mat4 &proj, glm::mat4 &view, glm::mat4 &model, Texture *array, const size_t array_size, const unsigned int WIDTH, const unsigned HEIGHT) 
-{ 
+void render_score(int &your_score, Shader &shader, Mesh &meshHero, glm::mat4 &mvp, glm::mat4 &proj, glm::mat4 &view,
+				  glm::mat4 &model, Texture *array, const size_t array_size, const unsigned int WIDTH,
+				  const unsigned HEIGHT) {
 	int which_texture = 0;
 	int my_score = your_score;
-	if (your_score < 10)
-	{
+	if (your_score < 10) {
 		proj = glm::perspective(glm::radians(130.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 100.0f);
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-0.9f, 1.9f, -1.0f));
 		model = glm::rotate(model, glm::radians(180.0f),
-						glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+							glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
 		mvp = proj * view * model;
 		shader.setMat4fv(mvp, "u_MVP");
 		shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
@@ -30,9 +30,7 @@ void render_score(int &your_score, Shader & shader, Mesh & meshHero ,glm::mat4 &
 		shader.set1i(array[your_score].GetTextureUnit(), "u_Texture");
 		shader.use();
 		meshHero.render(&shader);
-	} 
-	else if (your_score == 10) 
-	{
+	} else if (your_score == 10) {
 		proj = glm::perspective(glm::radians(130.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 100.0f);
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-1.03f, 1.9f, -1.0f));
 		model = glm::rotate(model, glm::radians(180.0f),
@@ -58,9 +56,7 @@ void render_score(int &your_score, Shader & shader, Mesh & meshHero ,glm::mat4 &
 		shader.set1i(array[0].GetTextureUnit(), "u_Texture");
 		shader.use();
 		meshHero.render(&shader);
-	}
-	else
-	{
+	} else {
 		int digit = 0;
 		float digit_position = -0.9f;
 		while (my_score >= 1) {
@@ -83,17 +79,13 @@ void render_score(int &your_score, Shader & shader, Mesh & meshHero ,glm::mat4 &
 	}
 }
 
-void increase_score(int & score)
-{ 
+void increase_score(int &score) {
 	++score;
-	if (score > 9) 
-	{
-		score = 0;
+	if (score > 9) {
 		score = 0;
 	}
-	this_thread::sleep_for(std::chrono::seconds(1)); 
+	this_thread::sleep_for(std::chrono::seconds(1));
 }
-
 
 void processInput(GLFWwindow *window, glm::vec3 &position, glm::vec3 &rotation, glm::vec3 &scale, Keyboard &kb) // test
 {
@@ -184,7 +176,18 @@ int main(void) {
 
 		};
 
-	Vertex verticesObstacle[] = // Obstacles
+	Vertex verticesHero[] = // Hero
+		{glm::vec3(-0.5f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f),	   glm::vec2(0.f, 1.f),
+		 glm::vec3(0.f, 0.f, 1.f),	  glm::vec3(-0.5f, -0.5, 0.f), glm::vec3(0.f, 1.f, 0.f),
+		 glm::vec2(0.f, 0.f),		  glm::vec3(0.f, 0.f, 1.f),	   glm::vec3(0.5f, -0.5f, 0.f),
+		 glm::vec3(0.f, 0.f, 1.f),	  glm::vec2(1.f, 0.f),		   glm::vec3(0.f, 0.f, 1.f),
+
+		 glm::vec3(0.5f, 1.0f, 0.f),  glm::vec3(1.f, 1.f, 0.f),	   glm::vec2(1.f, 1.f),
+		 glm::vec3(0.f, 0.f, 1.f)
+
+		};
+
+	Vertex verticesObstacleRegular[] = // h: 2, w: 1 (jump-over)
 		{glm::vec3(-0.25f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
 		 glm::vec3(-0.25f, 0.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
 		 glm::vec3(0.25f, 0.0f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
@@ -194,14 +197,23 @@ int main(void) {
 
 		};
 
-	Vertex verticesHero[] = // Hero
-		{glm::vec3(-0.5f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f),	   glm::vec2(0.f, 1.f),
-		 glm::vec3(0.f, 0.f, 1.f),	  glm::vec3(-0.5f, -0.5, 0.f), glm::vec3(0.f, 1.f, 0.f),
-		 glm::vec2(0.f, 0.f),		  glm::vec3(0.f, 0.f, 1.f),	   glm::vec3(0.5f, -0.5f, 0.f),
-		 glm::vec3(0.f, 0.f, 1.f),	  glm::vec2(1.f, 0.f),		   glm::vec3(0.f, 0.f, 1.f),
+	Vertex verticesObstacleWide[] = // h: 2, w: 2 (jump-over)
+		{glm::vec3(-0.5f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
+		 glm::vec3(-0.5f, 0.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+		 glm::vec3(0.5f, 0.0f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
 
-		 glm::vec3(0.5f, 1.0f, 0.f),  glm::vec3(1.f, 1.f, 0.f),	   glm::vec2(1.f, 1.f),
-		 glm::vec3(0.f, 0.f, 1.f)
+		 // TRIANGLE TWO
+		 glm::vec3(0.5f, 1.0f, 0.f), glm::vec3(1.f, 1.f, 0.f), glm::vec2(1.f, 1.f), glm::vec3(0.f, 0.f, 1.f)
+
+		};
+
+	Vertex verticesObstacleWider[] = // h: 2, w: 2 (jump-over)
+		{glm::vec3(-1.0f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
+		 glm::vec3(-1.0f, 0.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+		 glm::vec3(1.0f, 0.0f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+
+		 // TRIANGLE TWO
+		 glm::vec3(1.0f, 1.0f, 0.f), glm::vec3(1.f, 1.f, 0.f), glm::vec2(1.f, 1.f), glm::vec3(0.f, 0.f, 1.f)
 
 		};
 
@@ -237,27 +249,30 @@ int main(void) {
 	Texture score9("res/textures/9.png", GL_TEXTURE_2D, 0);
 	Texture score0("res/textures/0.png", GL_TEXTURE_2D, 0);
 	const size_t size_texture_array = 10;
-	Texture texture_array[size_texture_array] = {score0,score1,score2,score3,score4,score5,score6,score7,score8,score9};
-	//Texture *score_ptr = nullptr;
+	Texture texture_array[size_texture_array] = {score0, score1, score2, score3, score4,
+												 score5, score6, score7, score8, score9};
+	// Texture *score_ptr = nullptr;
 	Texture background_logo("res/textures/logo_endless_run_game.png", GL_TEXTURE_2D, 0);
 	Texture background_press_space("res/textures/press_space.png", GL_TEXTURE_2D, 0);
 
-	//Texture textureHero1("res/textures/kacio_hero_1.png", GL_TEXTURE_2D, 0);
+	// Texture textureHero1("res/textures/kacio_hero_1.png", GL_TEXTURE_2D, 0);
 	// Texture textureHero1("res/textures/ludzik-glowadd.jpg", GL_TEXTURE_3D, 0);
-	 Texture textureHero1("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
-	//Texture textureHero2("res/textures/kacio_hero_2.png", GL_TEXTURE_2D, 0);
+	Texture textureHero1("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
+	// Texture textureHero2("res/textures/kacio_hero_2.png", GL_TEXTURE_2D, 0);
 	// Texture textureHero2("res/textures/ludzik-glowadd.jpg", GL_TEXTURE_3D, 0);
 	Texture textureHero2("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
-//	Texture textureHero3("res/textures/kacio_hero_3.png", GL_TEXTURE_2D, 0);
-	 Texture textureHero3("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
+	//	Texture textureHero3("res/textures/kacio_hero_3.png", GL_TEXTURE_2D, 0);
+	Texture textureHero3("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
 	int currentHeroTexture = 1;
 
 	// Mesh
 	Renderer renderer;
-	Mesh mesh(vertices, 4 * 5, indices, 2 * 3);					// Path
-	Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3);			// Hero
-	Mesh meshObstacle(verticesObstacle, 4 * 5, indices, 2 * 3); // Hero
-	Mesh meshFence(vertices, 4 * 5, indices, 2 * 3);			// Side fences
+	Mesh mesh(vertices, 4 * 5, indices, 2 * 3);								  // Path
+	Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3);						  // Hero
+	Mesh meshObstacleRegular(verticesObstacleRegular, 4 * 5, indices, 2 * 3); // Obstacle-regular
+	Mesh meshObstacleWide(verticesObstacleWide, 4 * 5, indices, 2 * 3);		  // Obstacle-regular
+	Mesh meshObstacleWider(verticesObstacleWider, 4 * 5, indices, 2 * 3);	  // Obstacle-regular
+	Mesh meshFence(vertices, 4 * 5, indices, 2 * 3);						  // Side fences
 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // test
 
@@ -285,10 +300,9 @@ int main(void) {
 
 	ISoundEngine *SoundEngine = createIrrKlangDevice();
 	SoundEngine->setSoundVolume(0.5);
-	//SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3", GL_TRUE);
+	// SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3", GL_TRUE);
 	//////////////////////////////////////////////////////////////////
 	size_t obstacle_counter = 0;
-
 
 	bool skip = false;
 	bool music_play = false;
@@ -299,16 +313,13 @@ int main(void) {
 	float b = 0;
 	float c = 0;
 	float d = 0;
-	bool tym = false;			
+	bool tym = false;
 
 	while (!glfwWindowShouldClose(window)) // Game Loop
 	{
-		if (GetAsyncKeyState(VK_SPACE)) 
-		{
+		if (GetAsyncKeyState(VK_SPACE)) {
 			skip = true;
-		}
-		else if (GetAsyncKeyState(VK_ESCAPE)) 
-		{
+		} else if (GetAsyncKeyState(VK_ESCAPE)) {
 			skip = false;
 			SoundEngine->setAllSoundsPaused();
 			SoundEngine->play2D("res/audio/gameover.mp3", GL_TRUE);
@@ -319,18 +330,17 @@ int main(void) {
 			score_set = false;
 			music_play = false;
 			score_counter = 0;
-			currentHeroTexture = 1;		
+			currentHeroTexture = 1;
 			this_thread::sleep_for(std::chrono::seconds(3));
 			renderer.Clear();
 			SoundEngine->setAllSoundsPaused();
-			//SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder Edition.mp3",GL_TRUE);
+			// SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder
+			// Edition.mp3",GL_TRUE);
 		}
-		if (skip == true)
-		{
-			if (music_play == false) 
-			{
+		if (skip == true) {
+			if (music_play == false) {
 				SoundEngine->play2D("res/audio/soundtrack1.mp3", GL_TRUE);
-				//SoundEngine->play2D("res/audio/soundtrack2.mp3", GL_TRUE);
+				// SoundEngine->play2D("res/audio/soundtrack2.mp3", GL_TRUE);
 				music_play = true;
 			}
 			// glClearColor(0.3f, 0.5f, 0.5f, 0.5f);
@@ -409,25 +419,9 @@ int main(void) {
 				shader.use();
 				mesh.render(&shader);
 
-				// Obstacle
-				model = glm::translate(glm::mat4(1.0f), glm::vec3(p[i].obstacle.ph() * 0.5f, -0.35f /* + HEIGHT */, -3.0f));
-				model = glm::translate(model, glm::vec3(0.0f, 0.0f, -p[i].zOffset));
-				model = glm::rotate(model, glm::radians(180.0f),
-									glm::vec3(1.0f, 0.0f, 0.0f)); // tekstura, todo: wyciac po poprawce w klasie texture
-				mvp = proj * view * model;
-
-				shader.setMat4fv(mvp, "u_MVP");
-				shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
-
-				textureObstacle.Bind();
-				shader.set1i(textureObstacle.GetTextureUnit(), "u_Texture");
-				shader.use();
-				meshObstacle.render(&shader);
-
 				// Side fences
 				textureFence.Bind();
 				model = glm::mat4(1.0f);
-				int ph = p[i].obstacle.ph();
 				model = glm::translate(model, glm::vec3(1.5f, -0.75f, -p[i].zOffset));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 				model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -444,6 +438,47 @@ int main(void) {
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
 				meshFence.render(&shader);
+			}
+
+			// Obstacles
+			for (unsigned int i = 0; i < p.getLength(); ++i) {
+
+				unsigned int j = p.getLength() - i - 1;
+
+				int t = p[j].obstacle.type();
+
+				float px = p[j].obstacle.pos() * 0.5f;
+
+				if (t == Obstacle::OMIT_WIDE || t == Obstacle::JUMP_OVER_WIDE) {
+					px += 0.2f;
+				}
+				float py = -0.35f + ((t == Obstacle::SLIDE) || (t == Obstacle::SLIDE_WIDE));
+
+				model = glm::translate(glm::mat4(1.0f), glm::vec3(px, py, -3.0f));
+				model = glm::translate(model, glm::vec3(0.0f, 0.0f, -p[j].zOffset));
+				model = glm::rotate(model, glm::radians(180.0f),
+									glm::vec3(1.0f, 0.0f, 0.0f)); // tekstura, todo: wyciac po poprawce w klasie texture
+				mvp = proj * view * model;
+
+				shader.setMat4fv(mvp, "u_MVP");
+				shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+
+				textureObstacle.Bind();
+				shader.set1i(textureObstacle.GetTextureUnit(), "u_Texture");
+				shader.use();
+
+				switch (t) {
+				case Obstacle::JUMP_OVER:
+				case Obstacle::SLIDE:
+					meshObstacleRegular.render(&shader);
+					break;
+				case Obstacle::OMIT_WIDE:
+				case Obstacle::JUMP_OVER_WIDE:
+					meshObstacleWide.render(&shader);
+					break;
+				case Obstacle::SLIDE_WIDE:
+					meshObstacleWider.render(&shader);
+				}
 			}
 
 			// Character
@@ -486,11 +521,6 @@ int main(void) {
 			shader.use();
 			meshHero.render(&shader);
 
-
-
-
-
-
 			proj = glm::perspective(glm::radians(130.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 100.0f);
 			model = glm::translate(glm::mat4(1.0f), glm::vec3(-1.55f, 1.9f, -1.0f));
 			model = glm::rotate(model, glm::radians(180.0f),
@@ -504,19 +534,17 @@ int main(void) {
 			shader.use();
 			meshHero.render(&shader);
 
-			render_score(your_score, shader, meshHero, mvp, proj, view, model, texture_array, size_texture_array, WIDTH,HEIGHT);
-			proj = glm::mat4(1.0f);  //
-			view = glm::mat4(1.0f);  // "camera"
+			render_score(your_score, shader, meshHero, mvp, proj, view, model, texture_array, size_texture_array, WIDTH,
+						 HEIGHT);
+			proj = glm::mat4(1.0f);	 //
+			view = glm::mat4(1.0f);	 // "camera"
 			model = glm::mat4(1.0f); // "object"
-			if (score_counter % 61 == 0 && score_counter > 0)
-			{
+			if (score_counter % 61 == 0 && score_counter > 0) {
 				++your_score;
 				score_counter = 0;
 			}
 			++score_counter;
-		} 
-		else 
-		{
+		} else {
 			glm::mat4 proj = glm::mat4(1.0f);  //
 			glm::mat4 view = glm::mat4(1.0f);  // "camera"
 			glm::mat4 model = glm::mat4(1.0f); // "object"
@@ -560,7 +588,6 @@ int main(void) {
 
 			shader.use();
 			meshHero.render(&shader);
-
 
 			if (tym == true) {
 				a -= 0.1f;

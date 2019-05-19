@@ -10,12 +10,16 @@ Path::Path()
 	srand(time(0));
 
 	Obstacle ob;
+	Obstacle ob1;
+	Obstacle ob2;
+	Obstacle ob3;
+	Obstacle ob4;
 
 	segments_.push_back({ 0, 1, 0, 0,  8, ob, 0 });
-	segments_.push_back({ 0, 2, 1, 0, 24, ob, 0 });
-	segments_.push_back({ 0, 0, 2, 0, 40, ob, 0 });
-	segments_.push_back({ 0, 0, 2, 0, 56, ob, 0 });
-	segments_.push_back({ 0, 0, 2, 7, 56 + 8, ob, 0 });
+	segments_.push_back({ 0, 2, 1, 0, 24, ob1, 0 });
+	segments_.push_back({ 0, 0, 2, 0, 40, ob2, 0 });
+	segments_.push_back({ 0, 0, 2, 0, 56, ob3, 0 });
+	segments_.push_back({ 0, 0, 2, 7, 56 + 8, ob4, 0 });
 }
 
 void Path::Update(float deltaTime)
