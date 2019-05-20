@@ -177,12 +177,12 @@ int main(void) {
 		};
 
 	Vertex verticesHero[] = // Hero
-		{glm::vec3(-0.5f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f),	   glm::vec2(0.f, 1.f),
-		 glm::vec3(0.f, 0.f, 1.f),	  glm::vec3(-0.5f, -0.5, 0.f), glm::vec3(0.f, 1.f, 0.f),
-		 glm::vec2(0.f, 0.f),		  glm::vec3(0.f, 0.f, 1.f),	   glm::vec3(0.5f, -0.5f, 0.f),
-		 glm::vec3(0.f, 0.f, 1.f),	  glm::vec2(1.f, 0.f),		   glm::vec3(0.f, 0.f, 1.f),
+		{glm::vec3(-0.5f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f),	glm::vec2(0.f, 1.f),
+		 glm::vec3(0.f, 0.f, 1.f),	glm::vec3(-0.5f, -0.5, 0.f), glm::vec3(0.f, 1.f, 0.f),
+		 glm::vec2(0.f, 0.f),		  glm::vec3(0.f, 0.f, 1.f),	glm::vec3(0.5f, -0.5f, 0.f),
+		 glm::vec3(0.f, 0.f, 1.f),	glm::vec2(1.f, 0.f),		   glm::vec3(0.f, 0.f, 1.f),
 
-		 glm::vec3(0.5f, 1.0f, 0.f),  glm::vec3(1.f, 1.f, 0.f),	   glm::vec2(1.f, 1.f),
+		 glm::vec3(0.5f, 1.0f, 0.f),  glm::vec3(1.f, 1.f, 0.f),	glm::vec2(1.f, 1.f),
 		 glm::vec3(0.f, 0.f, 1.f)
 
 		};
@@ -271,7 +271,7 @@ int main(void) {
 	Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3);						  // Hero
 	Mesh meshObstacleRegular(verticesObstacleRegular, 4 * 5, indices, 2 * 3); // Obstacle-regular
 	Mesh meshObstacleWide(verticesObstacleWide, 4 * 5, indices, 2 * 3);		  // Obstacle-regular
-	Mesh meshObstacleWider(verticesObstacleWider, 4 * 5, indices, 2 * 3);	  // Obstacle-regular
+	Mesh meshObstacleWider(verticesObstacleWider, 4 * 5, indices, 2 * 3);	 // Obstacle-regular
 	Mesh meshFence(vertices, 4 * 5, indices, 2 * 3);						  // Side fences
 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // test
@@ -320,20 +320,24 @@ int main(void) {
 		if (GetAsyncKeyState(VK_SPACE)) {
 			skip = true;
 		} else if (GetAsyncKeyState(VK_ESCAPE)) {
+
+			if (skip == true)
+			{
+				SoundEngine->setAllSoundsPaused();
+				SoundEngine->play2D("res/audio/gameover.mp3", GL_TRUE);
+				glm::vec3 postion(0.f);
+				glm::vec3 rotation(0.f);
+				glm::vec3 scale(0.f);
+				your_score = 0;
+				score_set = false;
+				music_play = false;
+				score_counter = 0;
+				currentHeroTexture = 1;
+				this_thread::sleep_for(std::chrono::seconds(3));
+				renderer.Clear();
+				SoundEngine->setAllSoundsPaused();
+			}
 			skip = false;
-			SoundEngine->setAllSoundsPaused();
-			SoundEngine->play2D("res/audio/gameover.mp3", GL_TRUE);
-			glm::vec3 postion(0.f);
-			glm::vec3 rotation(0.f);
-			glm::vec3 scale(0.f);
-			your_score = 0;
-			score_set = false;
-			music_play = false;
-			score_counter = 0;
-			currentHeroTexture = 1;
-			this_thread::sleep_for(std::chrono::seconds(3));
-			renderer.Clear();
-			SoundEngine->setAllSoundsPaused();
 			// SoundEngine->play2D("res/audio/Sound FX Pack/\MLG Parody Sound FX/20th Century Recorder
 			// Edition.mp3",GL_TRUE);
 		}
@@ -536,8 +540,8 @@ int main(void) {
 
 			render_score(your_score, shader, meshHero, mvp, proj, view, model, texture_array, size_texture_array, WIDTH,
 						 HEIGHT);
-			proj = glm::mat4(1.0f);	 //
-			view = glm::mat4(1.0f);	 // "camera"
+			proj = glm::mat4(1.0f);  //
+			view = glm::mat4(1.0f);  // "camera"
 			model = glm::mat4(1.0f); // "object"
 			if (score_counter % 61 == 0 && score_counter > 0) {
 				++your_score;
