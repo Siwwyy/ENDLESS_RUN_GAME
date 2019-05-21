@@ -19,15 +19,19 @@ class Obstacle {
 		std::default_random_engine generator(seed);
 
 		_type = TYPE(generator() % 5);
+
+		while (_type == SLIDE || _type == SLIDE_WIDE) { // test
+			_type = TYPE(generator() % 5);
+		}
 		
-		if (_type < 2) {
+		if (_type < 2) { // JUMP_OVER, SLIDE
 			_pos = PH((generator() % 3)-1);
 		}
-		else if (_type != SLIDE_WIDE) {
+		else if (_type != SLIDE_WIDE) { // OMIT_WIDE, JUMP_OVER_WIDE
 			_pos = PH((generator() % 2)-1);
 
 		}
-		else {
+		else { // SLIDE_WIDE
 			_pos = CENTER;
 		}
 

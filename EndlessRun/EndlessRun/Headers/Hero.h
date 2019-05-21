@@ -1,3 +1,4 @@
+// max position y: ~1.36
 #ifndef _HERO_H_
 #define _HERO_H_
 #pragma  once

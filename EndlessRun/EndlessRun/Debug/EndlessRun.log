@@ -1,4 +1,16 @@
-﻿  main.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-  EndlessRun.vcxproj -> E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\Debug\EndlessRun.exe
+﻿  Hero.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  Path.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  VertexArray.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  main.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+  Generowanie kodu...
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\main.cpp(485): warning C4715: "<lambda_66f6e9e4fcc198e37dd534ab2bf62aee>::operator()”: niewszystkie ścieżki kodu zwracają wartość
+  EndlessRun.vcxproj -> C:\dev\Endless Runner\ENDLESS_RUN_GAME\EndlessRun\Debug\EndlessRun.exe

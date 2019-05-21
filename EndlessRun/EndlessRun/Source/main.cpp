@@ -207,6 +207,16 @@ int main(void) {
 
 		};
 
+	Vertex verticesObstacleWideTall[] = // h: 2, w: 2 (jump-over)
+	{ glm::vec3(-0.5f, 2.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
+	 glm::vec3(-0.5f, 1.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+	 glm::vec3(0.5f, 1.0f, 0.f), glm::vec3(0.f, 0.f, 1.f), glm::vec2(1.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
+
+		// TRIANGLE TWO
+		glm::vec3(0.5f, 2.0f, 0.f), glm::vec3(1.f, 1.f, 0.f), glm::vec2(1.f, 1.f), glm::vec3(0.f, 0.f, 1.f)
+
+	};
+
 	Vertex verticesObstacleWider[] = // h: 2, w: 2 (jump-over)
 		{glm::vec3(-1.0f, 1.0f, 0.f), glm::vec3(1.f, 0.f, 0.f), glm::vec2(0.f, 1.f), glm::vec3(0.f, 0.f, 1.f),
 		 glm::vec3(-1.0f, 0.0f, 0.f), glm::vec3(0.f, 1.f, 0.f), glm::vec2(0.f, 0.f), glm::vec3(0.f, 0.f, 1.f),
@@ -269,9 +279,11 @@ int main(void) {
 	Renderer renderer;
 	Mesh mesh(vertices, 4 * 5, indices, 2 * 3);								  // Path
 	Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3);						  // Hero
-	Mesh meshObstacleRegular(verticesObstacleRegular, 4 * 5, indices, 2 * 3); // Obstacle-regular
-	Mesh meshObstacleWide(verticesObstacleWide, 4 * 5, indices, 2 * 3);		  // Obstacle-regular
-	Mesh meshObstacleWider(verticesObstacleWider, 4 * 5, indices, 2 * 3);	  // Obstacle-regular
+	Mesh meshObstacleRegular(verticesObstacleRegular, 4 * 5, indices, 2 * 3); // Obstacle
+	Mesh meshObstacleWide(verticesObstacleWide, 4 * 5, indices, 2 * 3);		  // Obstacle
+	Mesh meshObstacleWideTall(verticesObstacleWideTall, 4 * 5, indices, 2 * 3);		  // Obstacle
+	Mesh meshObstacleWider(verticesObstacleWider, 4 * 5, indices, 2 * 3);	  // Obstacle
+
 	Mesh meshFence(vertices, 4 * 5, indices, 2 * 3);						  // Side fences
 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // test
@@ -317,6 +329,7 @@ int main(void) {
 
 	while (!glfwWindowShouldClose(window)) // Game Loop
 	{
+
 		if (GetAsyncKeyState(VK_SPACE)) {
 			skip = true;
 		} else if (GetAsyncKeyState(VK_ESCAPE)) {
@@ -386,9 +399,9 @@ int main(void) {
 				// 2. przesun o zOffset
 				model = glm::translate(model, glm::vec3(0.0f, -p[i].zOffset, 0.0f));
 				// 3. obroc o rotation
-				model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+				// model = glm::rotate(model, glm::radians(90.0f * p[i].rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 				// 4. przesun o xOffset
-				model = glm::translate(model, glm::vec3(0.0f, -p[i].xOffset, 0.0f)); // z, x, y
+				// model = glm::translate(model, glm::vec3(0.0f, -p[i].xOffset, 0.0f)); // z, x, y
 
 				mvp = proj * view * model;
 				shader.setMat4fv(mvp, "u_MVP");
@@ -445,39 +458,91 @@ int main(void) {
 
 				unsigned int j = p.getLength() - i - 1;
 
-				int t = p[j].obstacle.type();
+				// Check for collisions
+				if (i == 0 && p[0].zOffset < -0.8f && p[0].zOffset > -0.95f) {
+					// system("pause");
+					Obstacle o = p[0].obstacle;
+					std::pair<float, float> heroPosition = h.getPosition();
+					bool doesCollide = false;
+					auto collidesHorizontally = [](int obstaclePos, int width, float playerPos) {
+						if (width == 1) {
+							float radiusMin = obstaclePos - 0.25f;
+							float radiusMax = obstaclePos + 0.25f;
+							return (playerPos > radiusMin) && (playerPos < radiusMax);
+						}
 
-				float px = p[j].obstacle.pos() * 0.5f;
+						if (width == 2) {
+							if (obstaclePos == -1) {
+								return playerPos < 0.33f;
+							} else {
+								return playerPos > -0.33f;
+							}
+						}
 
-				if (t == Obstacle::OMIT_WIDE || t == Obstacle::JUMP_OVER_WIDE) {
-					px += 0.2f;
+						if (width == 3) {
+							return true;
+						}
+					};
+
+					switch (o.type()) {
+					case Obstacle::JUMP_OVER:
+						doesCollide =
+							(heroPosition.second < 1.36f / 2) && collidesHorizontally(o.pos(), 1, heroPosition.first);
+						break;
+					case Obstacle::JUMP_OVER_WIDE:
+						doesCollide =
+							(heroPosition.second < 1.36f / 2) && collidesHorizontally(o.pos(), 2, heroPosition.first);
+						break;
+					case Obstacle::OMIT_WIDE:
+						doesCollide = collidesHorizontally(o.pos(), 2, heroPosition.first);
+					}
+					
+					if (doesCollide) {
+						std::cout << "Collision!\n";
+						// todo: Game over screen
+						skip = false;
+					}
 				}
-				float py = -0.35f + ((t == Obstacle::SLIDE) || (t == Obstacle::SLIDE_WIDE));
 
-				model = glm::translate(glm::mat4(1.0f), glm::vec3(px, py, -3.0f));
-				model = glm::translate(model, glm::vec3(0.0f, 0.0f, -p[j].zOffset));
-				model = glm::rotate(model, glm::radians(180.0f),
+				// Render obstacle
+
+				if (p[j].zOffset > -2) {
+					int t = p[j].obstacle.type();
+
+					float px = p[j].obstacle.pos() * 0.5f;
+
+					if (t == Obstacle::OMIT_WIDE || t == Obstacle::JUMP_OVER_WIDE) {
+						px += 0.2f;
+					}
+					float py = -0.35f + (t == Obstacle::OMIT_WIDE) + ((t == Obstacle::SLIDE) || (t == Obstacle::SLIDE_WIDE));
+
+					model = glm::translate(glm::mat4(1.0f), glm::vec3(px, py, -3.0f));
+					model = glm::translate(model, glm::vec3(0.0f, 0.0f, -p[j].zOffset));
+					model =
+						glm::rotate(model, glm::radians(180.0f),
 									glm::vec3(1.0f, 0.0f, 0.0f)); // tekstura, todo: wyciac po poprawce w klasie texture
-				mvp = proj * view * model;
+					mvp = proj * view * model;
 
-				shader.setMat4fv(mvp, "u_MVP");
-				shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+					shader.setMat4fv(mvp, "u_MVP");
+					shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
 
-				textureObstacle.Bind();
-				shader.set1i(textureObstacle.GetTextureUnit(), "u_Texture");
-				shader.use();
+					textureObstacle.Bind();
+					shader.set1i(textureObstacle.GetTextureUnit(), "u_Texture");
+					shader.use();
 
-				switch (t) {
-				case Obstacle::JUMP_OVER:
-				case Obstacle::SLIDE:
-					meshObstacleRegular.render(&shader);
-					break;
-				case Obstacle::OMIT_WIDE:
-				case Obstacle::JUMP_OVER_WIDE:
-					meshObstacleWide.render(&shader);
-					break;
-				case Obstacle::SLIDE_WIDE:
-					meshObstacleWider.render(&shader);
+					switch (t) {
+					case Obstacle::JUMP_OVER:
+					case Obstacle::SLIDE:
+						meshObstacleRegular.render(&shader);
+						break;
+					case Obstacle::OMIT_WIDE:
+						meshObstacleWideTall.render(&shader);
+					case Obstacle::JUMP_OVER_WIDE:
+						meshObstacleWide.render(&shader);
+						break;
+					case Obstacle::SLIDE_WIDE:
+						meshObstacleWider.render(&shader);
+					}
 				}
 			}
 
@@ -534,8 +599,10 @@ int main(void) {
 			shader.use();
 			meshHero.render(&shader);
 
-			render_score(your_score, shader, meshHero, mvp, proj, view, model, texture_array, size_texture_array, WIDTH,
-						 HEIGHT);
+			// render_score(your_score, shader, meshHero, mvp, proj, view, model, texture_array, size_texture_array,
+			// WIDTH,
+			//			 HEIGHT);
+
 			proj = glm::mat4(1.0f);	 //
 			view = glm::mat4(1.0f);	 // "camera"
 			model = glm::mat4(1.0f); // "object"

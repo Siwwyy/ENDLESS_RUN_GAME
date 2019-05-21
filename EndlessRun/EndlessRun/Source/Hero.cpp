@@ -36,10 +36,10 @@ void Hero::update(float deltaTime, short mx, short my)
 	}
 
 	// Jumping
-	float G = -9.8f; // gravity
+	float G = -9.8f* 4; // gravity
 
 	if (my == 1 && Position.second == 0) // jump on pressing W
-		Velocity.second = 5;
+		Velocity.second = 10;
 	
 
 	if (my == -1 && Position.second > 0)  // dash downward on pressing S
@@ -49,8 +49,8 @@ void Hero::update(float deltaTime, short mx, short my)
 	float deltaY = deltaTime * Velocity.second;
 	Position.second += deltaY; // uodate player posision
 	
-	if (Position.second > 1)  // prevent player from jumping too high
-		Position.second = 1;
+	//if (Position.second > 1)  // prevent player from jumping too high
+	//	Position.second = 1;
 	
 
 	Velocity.second = Velocity.second + deltaTime * G; // update velocity

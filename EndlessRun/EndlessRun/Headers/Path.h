@@ -13,15 +13,15 @@ struct pathSegment
 	unsigned int type; // 0 = regular, 1 = turn, ...
 	unsigned int textureId; // 1 = kot.png, 2 = kot2.png, 3 = rogacz.png
 	unsigned int id;
-	float xOffset;
 	float zOffset;
 	Obstacle obstacle;
-	float rotation; // [-1, 1], 0 = normal  
 };
 
 class Path
 {
 public:
+
+	const static float length;
 
 	enum { // segment types
 		REGULAR
@@ -50,5 +50,6 @@ private:
 	float oldTime;
 	float newTime;
 };
+
 
 #endif /* _PATH_H_ */

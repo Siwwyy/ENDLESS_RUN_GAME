@@ -1,106 +1,40 @@
 ﻿  Hero.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\path.h(38): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
-  IndexBuffer.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-  Keyboard.cpp
-  main.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\path.h(38): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\main.cpp(171): warning C4129: 'M': unrecognized character escape sequence
-  Material.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(26): error C2864: „Path::length”: statyczny element składowa danych z inicjatorem w obrębie klasy musi być wyrażeniem stałym całkowitym typu „non-volatile” lub zostać określony jako „inline”
+  c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(26): note: typ to "int"
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(42): warning C4267: "return": konwersja z "size_t" do "unsigned int", możliwa utrata danych
   Mesh.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
   Path.cpp
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\path.h(38): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\path.cpp(10): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Renderer.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-  Shader.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-  Texture.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\texture.cpp(100): warning C4101: 'texture': unreferenced local variable
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(26): error C2864: „Path::length”: statyczny element składowa danych z inicjatorem w obrębie klasy musi być wyrażeniem stałym całkowitym typu „non-volatile” lub zostać określony jako „inline”
+  c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(26): note: typ to "int"
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(42): warning C4267: "return": konwersja z "size_t" do "unsigned int", możliwa utrata danych
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(10): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(18): error C2397: konwersja z "int" do "float" wymaga konwersji zawężającej
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(18): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(19): error C2397: konwersja z "int" do "float" wymaga konwersji zawężającej
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(19): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(20): error C2397: konwersja z "int" do "float" wymaga konwersji zawężającej
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(20): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(21): error C2397: konwersja z "int" do "float" wymaga konwersji zawężającej
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(21): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(22): error C2397: konwersja z "int" do "float" wymaga konwersji zawężającej
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\path.cpp(22): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
   VertexArray.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\headers\path.h(38): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(25): warning C4312: 'type cast': conversion from 'unsigned int' to 'const void *' of greater size
-  VertexBuffer.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-  Generating Code...
-IndexBuffer.obj : error LNK2001: unresolved external symbol __glewBindBuffer
-Mesh.obj : error LNK2001: unresolved external symbol __glewBindBuffer
-VertexBuffer.obj : error LNK2001: unresolved external symbol __glewBindBuffer
-IndexBuffer.obj : error LNK2001: unresolved external symbol __glewBufferData
-Mesh.obj : error LNK2001: unresolved external symbol __glewBufferData
-VertexBuffer.obj : error LNK2001: unresolved external symbol __glewBufferData
-IndexBuffer.obj : error LNK2001: unresolved external symbol __glewDeleteBuffers
-Mesh.obj : error LNK2001: unresolved external symbol __glewDeleteBuffers
-VertexBuffer.obj : error LNK2001: unresolved external symbol __glewDeleteBuffers
-IndexBuffer.obj : error LNK2001: unresolved external symbol __glewGenBuffers
-Mesh.obj : error LNK2001: unresolved external symbol __glewGenBuffers
-VertexBuffer.obj : error LNK2001: unresolved external symbol __glewGenBuffers
-main.obj : error LNK2019: unresolved external symbol glewInit referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwSetWindowShouldClose referenced in function "void __cdecl processInput(struct GLFWwindow *,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,class Keyboard &)" (?processInput@@YAXPEAUGLFWwindow@@AEAU?$vec@$02M$0A@@glm@@11AEAVKeyboard@@@Z)
-main.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwGetKey referenced in function "void __cdecl processInput(struct GLFWwindow *,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,struct glm::vec<3,float,0> &,class Keyboard &)" (?processInput@@YAXPEAUGLFWwindow@@AEAU?$vec@$02M$0A@@glm@@11AEAVKeyboard@@@Z)
-main.obj : error LNK2019: unresolved external symbol glfwGetTime referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
-main.obj : error LNK2019: unresolved external symbol glfwSwapInterval referenced in function main
-Mesh.obj : error LNK2001: unresolved external symbol __glewEnableVertexAttribArray
-VertexArray.obj : error LNK2001: unresolved external symbol __glewEnableVertexAttribArray
-Mesh.obj : error LNK2001: unresolved external symbol __glewVertexAttribPointer
-VertexArray.obj : error LNK2001: unresolved external symbol __glewVertexAttribPointer
-Mesh.obj : error LNK2001: unresolved external symbol __glewCreateVertexArrays
-Mesh.obj : error LNK2001: unresolved external symbol __glewBindVertexArray
-VertexArray.obj : error LNK2001: unresolved external symbol __glewBindVertexArray
-Mesh.obj : error LNK2001: unresolved external symbol __glewDeleteVertexArrays
-VertexArray.obj : error LNK2001: unresolved external symbol __glewDeleteVertexArrays
-Shader.obj : error LNK2001: unresolved external symbol __glewAttachShader
-Shader.obj : error LNK2001: unresolved external symbol __glewCompileShader
-Shader.obj : error LNK2001: unresolved external symbol __glewCreateProgram
-Shader.obj : error LNK2001: unresolved external symbol __glewCreateShader
-Shader.obj : error LNK2001: unresolved external symbol __glewDeleteProgram
-Shader.obj : error LNK2001: unresolved external symbol __glewDeleteShader
-Shader.obj : error LNK2001: unresolved external symbol __glewGetProgramInfoLog
-Shader.obj : error LNK2001: unresolved external symbol __glewGetProgramiv
-Shader.obj : error LNK2001: unresolved external symbol __glewGetShaderInfoLog
-Shader.obj : error LNK2001: unresolved external symbol __glewGetShaderiv
-Shader.obj : error LNK2001: unresolved external symbol __glewGetUniformLocation
-Shader.obj : error LNK2001: unresolved external symbol __glewLinkProgram
-Shader.obj : error LNK2001: unresolved external symbol __glewShaderSource
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform1f
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform1i
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform2fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform3fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUniform4fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUniformMatrix3fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUniformMatrix4fv
-Shader.obj : error LNK2001: unresolved external symbol __glewUseProgram
-Texture.obj : error LNK2019: unresolved external symbol SOIL_load_image referenced in function "public: __cdecl Texture::Texture(char const *,unsigned int,int)" (??0Texture@@QEAA@PEBDIH@Z)
-Texture.obj : error LNK2019: unresolved external symbol SOIL_free_image_data referenced in function "public: __cdecl Texture::Texture(char const *,unsigned int,int)" (??0Texture@@QEAA@PEBDIH@Z)
-Texture.obj : error LNK2001: unresolved external symbol __glewActiveTexture
-Texture.obj : error LNK2001: unresolved external symbol __glewGenerateMipmap
-VertexArray.obj : error LNK2001: unresolved external symbol __glewGenVertexArrays
-E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\\Dependencies\SOIL2\lib\soil2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\\Dependencies\SOIL2\lib\soil2-debug.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\\Dependencies\GLEW\lib\Release\Win32\glew32s.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\\Dependencies\GLFW\lib-vc2015\glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
-E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\x64\Debug\EndlessRun.exe : fatal error LNK1120: 48 unresolved externals
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(26): error C2864: „Path::length”: statyczny element składowa danych z inicjatorem w obrębie klasy musi być wyrażeniem stałym całkowitym typu „non-volatile” lub zostać określony jako „inline”
+  c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(26): note: typ to "int"
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(42): warning C4267: "return": konwersja z "size_t" do "unsigned int", możliwa utrata danych
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\source\vertexarray.cpp(25): warning C4312: "typ rzutowania": konwersja z "unsigned int" na "const void *" jest większej wielkości
+  main.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: "APIENTRY": ponowna definicja makra
+  c:\dev\endless runner\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: zobacz poprzednią definicję „APIENTRY”
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(26): error C2864: „Path::length”: statyczny element składowa danych z inicjatorem w obrębie klasy musi być wyrażeniem stałym całkowitym typu „non-volatile” lub zostać określony jako „inline”
+  c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(26): note: typ to "int"
+c:\dev\endless runner\endless_run_game\endlessrun\endlessrun\headers\path.h(42): warning C4267: "return": konwersja z "size_t" do "unsigned int", możliwa utrata danych
+  Generowanie kodu...
