@@ -279,17 +279,14 @@ int main(void) {
 	Renderer renderer;
 	Mesh mesh(vertices, 4 * 5, indices, 2 * 3);								  // Path
 	Mesh meshHero(verticesHero, 4 * 5, indices, 2 * 3);						  // Hero
-<<<<<<< HEAD
 	Mesh meshObstacleRegular(verticesObstacleRegular, 4 * 5, indices, 2 * 3); // Obstacle
 	Mesh meshObstacleWide(verticesObstacleWide, 4 * 5, indices, 2 * 3);		  // Obstacle
 	Mesh meshObstacleWideTall(verticesObstacleWideTall, 4 * 5, indices, 2 * 3);		  // Obstacle
 	Mesh meshObstacleWider(verticesObstacleWider, 4 * 5, indices, 2 * 3);	  // Obstacle
 
-=======
-	Mesh meshObstacleRegular(verticesObstacleRegular, 4 * 5, indices, 2 * 3); // Obstacle-regular
-	Mesh meshObstacleWide(verticesObstacleWide, 4 * 5, indices, 2 * 3);		  // Obstacle-regular
-	Mesh meshObstacleWider(verticesObstacleWider, 4 * 5, indices, 2 * 3);	 // Obstacle-regular
->>>>>>> 69bdc8a7f829065a166bbf3c16cfc3570f3a0d68
+	//Mesh meshObstacleRegular(verticesObstacleRegular, 4 * 5, indices, 2 * 3); // Obstacle-regular
+	//Mesh meshObstacleWide(verticesObstacleWide, 4 * 5, indices, 2 * 3);		  // Obstacle-regular
+	//Mesh meshObstacleWider(verticesObstacleWider, 4 * 5, indices, 2 * 3);	 // Obstacle-regular
 	Mesh meshFence(vertices, 4 * 5, indices, 2 * 3);						  // Side fences
 
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f); // test
@@ -332,13 +329,15 @@ int main(void) {
 	float c = 0;
 	float d = 0;
 	bool tym = false;
+	bool game_over = false;
 
 	while (!glfwWindowShouldClose(window)) // Game Loop
 	{
 
 		if (GetAsyncKeyState(VK_SPACE)) {
 			skip = true;
-		} else if (GetAsyncKeyState(VK_ESCAPE)) {
+			game_over = false;
+		} else if (GetAsyncKeyState(VK_ESCAPE) || game_over == true) {
 
 			if (skip == true)
 			{
@@ -487,9 +486,7 @@ int main(void) {
 							} else {
 								return playerPos > -0.33f;
 							}
-						}
-
-						if (width == 3) {
+						} else  if (width == 3) {
 							return true;
 						}
 					};
@@ -510,7 +507,8 @@ int main(void) {
 					if (doesCollide) {
 						std::cout << "Collision!\n";
 						// todo: Game over screen
-						skip = false;
+						//skip = false;
+						game_over = true;
 					}
 				}
 
@@ -609,19 +607,17 @@ int main(void) {
 			shader.use();
 			meshHero.render(&shader);
 
-<<<<<<< HEAD
 			// render_score(your_score, shader, meshHero, mvp, proj, view, model, texture_array, size_texture_array,
 			// WIDTH,
 			//			 HEIGHT);
 
 			proj = glm::mat4(1.0f);	 //
 			view = glm::mat4(1.0f);	 // "camera"
-=======
+
 			render_score(your_score, shader, meshHero, mvp, proj, view, model, texture_array, size_texture_array, WIDTH,
 						 HEIGHT);
 			proj = glm::mat4(1.0f);  //
 			view = glm::mat4(1.0f);  // "camera"
->>>>>>> 69bdc8a7f829065a166bbf3c16cfc3570f3a0d68
 			model = glm::mat4(1.0f); // "object"
 			if (score_counter % 61 == 0 && score_counter > 0) {
 				++your_score;
