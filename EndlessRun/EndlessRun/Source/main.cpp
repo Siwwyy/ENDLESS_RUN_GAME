@@ -267,12 +267,27 @@ int main(void) {
 
 	// Texture textureHero1("res/textures/kacio_hero_1.png", GL_TEXTURE_2D, 0);
 	// Texture textureHero1("res/textures/ludzik-glowadd.jpg", GL_TEXTURE_3D, 0);
-	Texture textureHero1("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
+
+
+	//Texture textureHero1("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
+	Texture textureHero1("res/textures/majkel_jordan.png", GL_TEXTURE_2D, 0);
+
+
 	// Texture textureHero2("res/textures/kacio_hero_2.png", GL_TEXTURE_2D, 0);
 	// Texture textureHero2("res/textures/ludzik-glowadd.jpg", GL_TEXTURE_3D, 0);
-	Texture textureHero2("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
+
+
+	//Texture textureHero2("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
+	Texture textureHero2("res/textures/majkel_jordan1.png", GL_TEXTURE_2D, 0);
+
+
 	//	Texture textureHero3("res/textures/kacio_hero_3.png", GL_TEXTURE_2D, 0);
-	Texture textureHero3("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
+
+
+	//Texture textureHero3("res/textures/ludzik-glowa3D.png", GL_TEXTURE_2D, 0);
+	Texture textureHero3("res/textures/majkel_jordan2.png", GL_TEXTURE_2D, 0);
+
+
 	int currentHeroTexture = 1;
 
 	// Mesh
