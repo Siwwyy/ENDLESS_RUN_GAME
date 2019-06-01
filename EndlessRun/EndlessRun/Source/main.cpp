@@ -71,7 +71,7 @@ void render_score(int &your_score, Shader &shader, Mesh &meshHero, glm::mat4 &mv
 			shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
 
 			array[digit].Bind();
-			shader.set1i(array[your_score].GetTextureUnit(), "u_Texture");
+			shader.set1i(array[digit].GetTextureUnit(), "u_Texture");
 			shader.use();
 			meshHero.render(&shader);
 			digit_position -= 0.13f;
@@ -246,7 +246,12 @@ int main(void) {
 
 	Texture textureObstacle("res/textures/kot.png", GL_TEXTURE_2D, 0);
 
-	Texture background_menu_texture("res/textures/menu_background_image.png", GL_TEXTURE_2D, 0);
+	//Texture background_menu_texture("res/textures/menu_background_image.png", GL_TEXTURE_2D, 0);
+	Texture background_menu_texture("res/textures/tlo1.png", GL_TEXTURE_2D, 0);
+	Texture tunel("res/textures/tunel.png", GL_TEXTURE_2D, 0);
+	Texture sun("res/textures/slonko.png", GL_TEXTURE_2D, 0);
+	//Texture background_menu_texture_in_game("res/textures/background_iamge.png", GL_TEXTURE_2D, 0);
+	Texture clouds("res/textures/clouds.png", GL_TEXTURE_2D, 0);
 	Texture score("res/textures/score.png", GL_TEXTURE_2D, 0);
 	Texture score1("res/textures/1.png", GL_TEXTURE_2D, 0);
 	Texture score2("res/textures/2.png", GL_TEXTURE_2D, 0);
@@ -343,7 +348,9 @@ int main(void) {
 	float b = 0;
 	float c = 0;
 	float d = 0;
+	float cloud_moves = 0.f;
 	bool tym = false;
+	bool tym2 = false;
 	bool game_over = false;
 
 	while (!glfwWindowShouldClose(window)) // Game Loop
@@ -362,7 +369,10 @@ int main(void) {
 				glm::vec3 rotation(0.f);
 				glm::vec3 scale(0.f);
 				your_score = 0;
+				cloud_moves = 0;
 				score_set = false;
+				tym = false;
+				tym2 = false;
 				music_play = false;
 				score_counter = 0;
 				currentHeroTexture = 1;
@@ -380,7 +390,7 @@ int main(void) {
 				// SoundEngine->play2D("res/audio/soundtrack2.mp3", GL_TRUE);
 				music_play = true;
 			}
-			// glClearColor(0.3f, 0.5f, 0.5f, 0.5f);
+			 glClearColor(0.0f, 0.0f, 0.5f, 0.5f);
 			// glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 			// Update
 			deltaTime = newTime - oldTime; // calculate elapsed time
@@ -520,7 +530,7 @@ int main(void) {
 					}
 					
 					if (doesCollide) {
-						std::cout << "Collision!\n";
+						//std::cout << "Collision!\n";
 						// todo: Game over screen
 						//skip = false;
 						game_over = true;
@@ -639,12 +649,82 @@ int main(void) {
 				score_counter = 0;
 			}
 			++score_counter;
+
+
+
+
+
+
+
+			proj = glm::perspective(glm::radians(120.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 150.0f);
+			model = glm::translate(glm::mat4(1.0f), glm::vec3(cloud_moves, 0.45f, -1.0f));
+			model = glm::rotate(model, glm::radians(180.0f),
+								glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+			mvp = proj * view * model;
+			shader.setMat4fv(mvp, "u_MVP");
+			shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+
+			clouds.Bind();
+			shader.set1i(clouds.GetTextureUnit(), "u_Texture");
+			shader.use();
+			meshHero.render(&shader);
+
+
+			if (tym2 == true) {
+				cloud_moves -= 0.01f;
+			} else if (tym2 == false) {
+				cloud_moves += 0.01f;
+			}
+
+			if (cloud_moves > 0.9f) {
+				tym2 = true;
+			} else if (cloud_moves < -0.9f) {
+				tym2 = false;
+			}
+
+
+
+
+			proj = glm::perspective(glm::radians(110.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 150.0f);
+			model = glm::translate(glm::mat4(1.0f), glm::vec3(0.9f, 1.1f, -1.0f));
+			model = glm::rotate(model, glm::radians(180.0f),
+								glm::vec3(1.0f, 0.0f, cloud_moves)); // todo: wyciac po poprawce w klasie texture
+			mvp = proj * view * model;
+			shader.setMat4fv(mvp, "u_MVP");
+			shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+
+			sun.Bind();
+			shader.set1i(sun.GetTextureUnit(), "u_Texture");
+			shader.use();
+			meshHero.render(&shader);
+
+
+
+			proj = glm::perspective(glm::radians(150.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 150.0f);
+			model = glm::translate(glm::mat4(1.0f), glm::vec3(0.1f, 0.3f, -1.9f));
+			model = glm::rotate(model, glm::radians(180.0f),
+								glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+			mvp = proj * view * model;
+			shader.setMat4fv(mvp, "u_MVP");
+			shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+
+			tunel.Bind();
+			shader.set1i(tunel.GetTextureUnit(), "u_Texture");
+			shader.use();
+			meshHero.render(&shader);
+
+
+
+
+
+			//++cloud_moves;
+
 		} else {
 			glm::mat4 proj = glm::mat4(1.0f);  //
 			glm::mat4 view = glm::mat4(1.0f);  // "camera"
 			glm::mat4 model = glm::mat4(1.0f); // "object"
-			proj = glm::perspective(glm::radians(50.0f), ((float)WIDTH / (float)HEIGHT) / 2, 0.1f, 100.0f);
-			model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0.3f, -1.0f));
+			proj = glm::perspective(glm::radians(59.0f), ((float)WIDTH / (float)HEIGHT) / 2, 0.1f, 100.0f);
+			model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0.1f, -1.0f));
 			model = glm::rotate(model, glm::radians(180.0f),
 								glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
 			glm::mat4 mvp = proj * view * model;
@@ -657,6 +737,21 @@ int main(void) {
 			shader.set1i(background_menu_texture.GetTextureUnit(), "u_Texture");
 			shader.use();
 			meshHero.render(&shader);
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
 
 			proj = glm::perspective(glm::radians(80.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 100.0f);
 			model = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0.45f, -1.0f));
