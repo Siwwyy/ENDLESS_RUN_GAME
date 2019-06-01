@@ -700,8 +700,8 @@ int main(void) {
 
 
 
-			proj = glm::perspective(glm::radians(150.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 150.0f);
-			model = glm::translate(glm::mat4(1.0f), glm::vec3(0.1f, 0.3f, -1.9f));
+			proj = glm::perspective(glm::radians(140.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 150.0f);
+			model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.5f, -1.9f));
 			model = glm::rotate(model, glm::radians(180.0f),
 								glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
 			mvp = proj * view * model;
