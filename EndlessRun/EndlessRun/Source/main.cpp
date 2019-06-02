@@ -420,6 +420,26 @@ int main(void) {
 			/* Render here */
 			renderer.Clear();
 
+			proj = glm::perspective(glm::radians(140.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 150.0f);
+			 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.5f, -0.3f));
+			 model = glm::rotate(model, glm::radians(180.0f),
+								glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+			 mvp = proj * view * model;
+			 shader.setMat4fv(mvp, "u_MVP");
+			 shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+
+			 tunel.Bind();
+			 shader.set1i(tunel.GetTextureUnit(), "u_Texture");
+			 shader.use();
+			 meshHero.render(&shader);
+			 // MVP matrices
+			 proj = glm::mat4(1.0f);  //
+			 view = glm::mat4(1.0f);  // "camera"
+			 model = glm::mat4(1.0f); // "object"
+			 proj = glm::perspective(glm::radians(70.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
+			 // model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+			 mvp = proj * view * model;
+
 			// Path
 			for (unsigned int i = 0; i < p.getLength(); ++i) {
 
