@@ -247,9 +247,10 @@ int main(void) {
 	Texture textureObstacle("res/textures/kot.png", GL_TEXTURE_2D, 0);
 
 	//Texture background_menu_texture("res/textures/menu_background_image.png", GL_TEXTURE_2D, 0);
-	Texture background_menu_texture("res/textures/tlo1.png", GL_TEXTURE_2D, 0);
+	Texture background_menu_texture("res/textures/tlo4.png", GL_TEXTURE_2D, 0);
 	Texture tunel("res/textures/tunel.png", GL_TEXTURE_2D, 0);
 	Texture sun("res/textures/slonko.png", GL_TEXTURE_2D, 0);
+	//Texture sun("res/textures/pkow.png", GL_TEXTURE_2D, 0);
 	//Texture background_menu_texture_in_game("res/textures/background_iamge.png", GL_TEXTURE_2D, 0);
 	Texture clouds("res/textures/clouds.png", GL_TEXTURE_2D, 0);
 	Texture score("res/textures/score.png", GL_TEXTURE_2D, 0);
@@ -700,18 +701,18 @@ int main(void) {
 
 
 
-			proj = glm::perspective(glm::radians(140.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 150.0f);
-			model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.5f, -1.9f));
-			model = glm::rotate(model, glm::radians(180.0f),
-								glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
-			mvp = proj * view * model;
-			shader.setMat4fv(mvp, "u_MVP");
-			shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
+			//proj = glm::perspective(glm::radians(140.0f), (float)WIDTH / (float)HEIGHT / 2, 0.1f, 150.0f);
+			//model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.5f, -1.9f));
+			//model = glm::rotate(model, glm::radians(180.0f),
+			//					glm::vec3(1.0f, 0.0f, 0.0f)); // todo: wyciac po poprawce w klasie texture
+			//mvp = proj * view * model;
+			//shader.setMat4fv(mvp, "u_MVP");
+			//shader.setVec4f(glm::fvec4(1.0f, 1.0f, 1.0f, 1.0f), "u_Color");
 
-			tunel.Bind();
-			shader.set1i(tunel.GetTextureUnit(), "u_Texture");
-			shader.use();
-			meshHero.render(&shader);
+			//tunel.Bind();
+			//shader.set1i(tunel.GetTextureUnit(), "u_Texture");
+			//shader.use();
+			//meshHero.render(&shader);
 
 
 

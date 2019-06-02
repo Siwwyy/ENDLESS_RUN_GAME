@@ -1,5 +1,42 @@
-﻿  main.cpp
+﻿  Hero.cpp
 c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
   e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
-e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\main.cpp(517): warning C4715: '<lambda_6a9aef4185ab30e4febff6c8c8d4766b>::operator()': not all control paths return a value
+  IndexBuffer.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Keyboard.cpp
+  main.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Material.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Mesh.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Path.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\path.cpp(12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Renderer.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Shader.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Texture.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\texture.cpp(103): warning C4101: 'texture': unreferenced local variable
+  VertexArray.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  VertexBuffer.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17763.0\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\dependencies\glfw\include\glfw\glfw3.h(98): note: see previous definition of 'APIENTRY'
+  Generating Code...
+e:\!!projects vs\!grafika_komputerowa\!pgk_2019\!project_for_lecturers\temple_run_2\endless_run_game\endlessrun\endlessrun\source\main.cpp(518): warning C4715: '<lambda_6a9aef4185ab30e4febff6c8c8d4766b>::operator()': not all control paths return a value
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\Debug\vc120.pdb'; linking object as if no debug info
   EndlessRun.vcxproj -> E:\!!Projects VS\!GRAFIKA_KOMPUTEROWA\!PGK_2019\!project_for_lecturers\TEMPLE_RUN_2\ENDLESS_RUN_GAME\EndlessRun\Debug\EndlessRun.exe
